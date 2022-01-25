@@ -9,6 +9,7 @@ import { HeaderComponent } from 'src/app/shared/header/header.component';
 import { FooterComponent } from 'src/app/shared/footer/footer.component';
 import { ButtonComponent } from './button/button.component';
 import { BreadcrumbComponent } from 'src/app/shared/breadcrumb/breadcrumb.component';
+import { RoutingModule } from 'src/app/pages/routing.modules';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BreadcrumbComponent } from 'src/app/shared/breadcrumb/breadcrumb.compon
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RoutingModule
   ]
 })
 export class SharedModule { }

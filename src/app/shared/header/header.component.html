@@ -1,1 +1,16 @@
-<p>header works!</p>
+<nav>
+  <ul>
+    <a class="nav-link" [routerLink]="['/home']"><img class="icon-logo" src='../../../assets/icons/logo.svg'>Contratech</a>
+    <li class="nav-link" [routerLink]="['/home']">Home</li>
+    <li class="nav-link" [routerLink]="['/obras']">Minhas obras</li>
+    <li class="nav-link" [routerLink]="['/cadastrar']">Cadastrar</li>
+  </ul>
+  <div class="btn">
+    <app-button color="btn-login" title="Login" [routerLink]="['/login']"></app-button>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<app-footer></app-footer>

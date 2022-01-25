@@ -22,7 +22,7 @@ import { ReportComponent } from './report/report.component';
     LoginComponent,
     ListWorkComponent,
     TableComponent,
-    ReportComponent
+    ReportComponent,
   ],
   imports: [
     CommonModule,

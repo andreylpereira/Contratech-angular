@@ -5,12 +5,12 @@
   --danger: #f44336;
 
   /* Colors-hover */
-  --primary-hover: rgba(33, 33, 33, 0.5);
-  --danger-hover: rgba(244, 67, 54, 0.6);;
+  --primary-hover: rgba(33, 33, 33, 0.95);
+  --danger-hover: rgba(244, 67, 54, 0.95);
 
   /* Colors-active */
-  --primary-active: rgba(33, 33, 33, 0.25);;
-  --danger: rgba(244, 67, 54, 0.3);;
+  --primary-active: rgba(33, 33, 33, 0.75);
+  --danger-active: rgba(244, 67, 54, 0.75);
 
   /* Background-colors */
   --bg-primary: #fdc754;
