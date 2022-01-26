@@ -11,7 +11,7 @@ export class ButtonComponent implements OnInit {
   title: string = '';
 
   @Input()
-  color: string = ""
+  color: string = "";
 
 
   constructor() { }

@@ -2,3 +2,41 @@ body {
   background-color: var(--bg-primary);
   background-size: cover;
 }
+
+mat-card {
+  margin: 0 auto;
+  max-width: 400px;
+  min-height: 450px;
+  background-color: var(--secondary);
+}
+
+span,
+mat-card-header
+{
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-header {
+  margin-bottom: 18px;
+}
+
+mat-card-title {
+  font-family: Roboto;
+  font-size:  20px ;
+  font-weight: bold;
+  margin: 0;
+}
+
+.primary, .secondary {
+  display: flex;
+  justify-content: center;
+}
+
+.primary {
+  margin-bottom: 10px;
+}
+.secondary {
+  margin-bottom: 30px;
+}
+
