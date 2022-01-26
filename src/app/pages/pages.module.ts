@@ -6,6 +6,7 @@ import { RoutingModule } from 'src/app/pages/routing.modules';
 /* Modules */
 import { MaterialModule } from 'src/app/material/material/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 /* Pages */
 import { HomeComponent } from './home/home.component';
@@ -28,7 +29,8 @@ import { ReportComponent } from './report/report.component';
     CommonModule,
     MaterialModule,
     RoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }

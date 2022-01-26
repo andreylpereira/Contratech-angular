@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /* Modules */
 import { PagesModule } from 'src/app/pages/pages.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 /* Components */
@@ -19,6 +20,7 @@ import { PagesModule } from 'src/app/pages/pages.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     PagesModule
   ],
   providers: [],

@@ -10,25 +10,33 @@ mat-card {
   background-color: var(--secondary);
 }
 
+span {
+  padding-top: 15px;
+}
+
 span,
-mat-card-header
-{
+mat-card-header {
   display: flex;
   justify-content: center;
 }
 
-mat-card-header {
-  margin-bottom: 18px;
-}
-
 mat-card-title {
+  color: var(--primary);
   font-family: Roboto;
-  font-size:  20px ;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.25px;
   margin: 0;
+  margin-bottom: 10px;
 }
 
-.primary, .secondary {
+mat-card-footer {
+  margin-top: 30px;
+}
+
+.primary,
+.secondary {
   display: flex;
   justify-content: center;
 }
@@ -40,3 +48,39 @@ mat-card-title {
   margin-bottom: 30px;
 }
 
+/* Deletar os .link*/
+.link {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 15px;
+  text-align: center;
+  color: #ada9a9;
+}
+
+.link > a {
+  color: var(--primary);
+}
+
+.form {
+  display:flex;
+  justify-content: center;
+}
+
+::ng-deep .mat-form-field-infix {
+  width: 300px !important;
+}
+
+/* Mudando cor do input do material */
+::ng-deep .mat-focused .mat-form-field-label {
+  color: var(--primary) !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: var(--primary) !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: var(--primary) !important;
+}
