@@ -1,1 +1,9 @@
-<p>breadcrumb works!</p>
+<nav class="w-75 breadcrumb">
+  <ul>
+    <li class="link">
+      <a routerLink="{{ router }}">{{ link }}</a>
+    </li>
+    <li class="bar item" *ngIf="link != ''">/</li>
+    <li class="item">{{ item }}</li>
+  </ul>
+</nav>
