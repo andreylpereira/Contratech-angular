@@ -18,6 +18,7 @@
   --bg-breadcrumb: rgba(247, 247, 247, 0.8);
 }
 
+/* Apagar o que não for utilizado no futuro*/
 .w-100 {
   width: 100%;
 }
