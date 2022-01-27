@@ -16,6 +16,7 @@ import { ListWorkComponent } from './list-work/list-work.component';
 import { TableComponent } from './table/table.component';
 import { ReportComponent } from './report/report.component';
 
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -30,7 +31,8 @@ import { ReportComponent } from './report/report.component';
     MaterialModule,
     RoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ]
 })
 export class PagesModule { }

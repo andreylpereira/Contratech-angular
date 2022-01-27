@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,21 +10,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagesModule } from 'src/app/pages/pages.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 /* Components */
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    PagesModule
+    HttpClientModule,
+    PagesModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

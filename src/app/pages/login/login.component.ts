@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Login from 'src/app/pages/login/login.model';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  public loginForm: FormGroup = this.fb.group({
+  private user: Login = {
+    login: '',
+    senha: '',
+  };
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private loginService: LoginService
+  ) {}
+
+  public loginForm: FormGroup = this.formBuilder.group({
     login: [
       '',
       [Validators.required, Validators.minLength(6), Validators.maxLength(20)],
@@ -19,14 +32,21 @@ export class LoginComponent implements OnInit {
     ],
   });
 
-  constructor(private fb: FormBuilder, private router: Router) {}
-
   ngOnInit(): void {}
 
-  submitForm() {
+  login() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
+      this.user.login = this.loginForm.get('login')?.value;
+      this.user.senha = this.loginForm.get('password')?.value;
+
+      let user: Login = this.user;
+
+      this.loginService.login(user);
       this.router.navigate(['obras']);
     }
+  }
+
+  logout() {
+    this.loginService.logout();
   }
 }
