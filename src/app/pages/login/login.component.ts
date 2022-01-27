@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Login from 'src/app/pages/login/login.model';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private authService: AuthService
   ) {}
 
   public loginForm: FormGroup = this.formBuilder.group({
@@ -47,6 +49,7 @@ export class LoginComponent implements OnInit {
   }
 
   logout() {
+    this.authService.isAuthenticated();
     this.loginService.logout();
   }
 }

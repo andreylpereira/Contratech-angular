@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import Login from 'src/app/pages/login/login.model';
-import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +15,11 @@ export class LoginService {
   login(user: Login) {
     return this.http.post<any>(this.url, user).subscribe((data) => {
       sessionStorage.setItem('currentUser', JSON.stringify(data));
-      console.log(data);
+
+      // const session: any  = sessionStorage.getItem('currentUser');
+      // const test = JSON.parse(session);
+      // console.log('Test');
+      // console.log(test);
     });
   }
 
