@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* Modules */
 import { PagesModule } from 'src/app/pages/pages.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 /* Components */
 
@@ -22,7 +23,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     PagesModule,
   ],
-  providers: [],
+  providers:  [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import Login from 'src/app/pages/login/login.model';
 
 @Injectable({
@@ -8,18 +9,14 @@ import Login from 'src/app/pages/login/login.model';
 export class LoginService {
   readonly url: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.url = 'http://localhost:8080/api/seguranca/login';
   }
 
   login(user: Login) {
     return this.http.post<any>(this.url, user).subscribe((data) => {
       sessionStorage.setItem('currentUser', JSON.stringify(data));
-
-      // const session: any  = sessionStorage.getItem('currentUser');
-      // const test = JSON.parse(session);
-      // console.log('Test');
-      // console.log(test);
+      this.router.navigate(['obras']);
     });
   }
 
