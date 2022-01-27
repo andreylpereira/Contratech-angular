@@ -22,7 +22,7 @@
               placeholder="Digite seu login"
             />
             <mat-error *ngIf="loginForm.get('login')?.errors">
-              Digite um login válido!
+              Login inválido!
             </mat-error>
           </mat-form-field>
           <br />
@@ -35,7 +35,7 @@
               placeholder="Digite sua senha"
             />
             <mat-error *ngIf="loginForm.get('password')?.errors">
-              Digite uma senha válida!
+             Senha inválida!
             </mat-error>
           </mat-form-field>
         </form>
