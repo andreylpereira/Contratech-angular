@@ -1,0 +1,36 @@
+:root {
+  /* Colors */
+  --primary: #212121;
+  --secondary: #fff;
+  --danger: #f44336;
+
+  /* Colors-hover */
+  --primary-hover: rgba(33, 33, 33, 0.95);
+  --danger-hover: rgba(244, 67, 54, 0.95);
+
+  /* Colors-active */
+  --primary-active: rgba(33, 33, 33, 0.75);
+  --danger-active: rgba(244, 67, 54, 0.75);
+
+  /* Background-colors */
+  --bg-primary: #fdc754;
+  --bg-secondary: #fff;
+  --bg-breadcrumb: rgba(247, 247, 247, 0.8);
+}
+
+/* Apagar o que não for utilizado no futuro*/
+.w-100 {
+  width: 100%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-25 {
+  width: 25%;
+}

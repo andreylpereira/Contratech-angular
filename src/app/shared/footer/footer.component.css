@@ -1,0 +1,38 @@
+footer {
+  display:flex;
+  justify-content:space-between;
+  position: fixed;
+  bottom: 0;
+  height: 48px;
+  margin-top: 40px;
+  background-color: var(--bg-breadcrumb);
+  box-shadow: inset 0px 4px 2px rgba(255, 255, 255, 0.219);
+}
+.app-name, .app-email {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.25px;
+}
+
+.app-email {
+  margin-left: 5px;
+}
+span {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right {
+  float: right;
+  margin-right: 20px;
+}
+
+.left {
+  float: left;
+  margin-left: 20px;
+}

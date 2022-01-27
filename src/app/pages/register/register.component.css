@@ -1,0 +1,50 @@
+body {
+  background-color: var(--bg-primary);
+  background-size: cover;
+}
+
+mat-card {
+  margin: 0 auto;
+  background-color: var(--secondary);
+}
+
+mat-card-title {
+  color: var(--primary);
+  text-align: left !important;
+  font-family: Roboto;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.25px;
+  margin-bottom: 10px;
+}
+
+mat-card-footer {
+  margin-bottom: 10px;
+}
+
+
+::ng-deep .mat-card-header-text {
+  margin: 0 !important;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+/* Mudando cor do input do material */
+::ng-deep .mat-focused .mat-form-field-label {
+  color: var(--primary) !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: var(--primary) !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: var(--primary) !important;
+}
+
+.primary {
+  margin-top: 10px;
+}

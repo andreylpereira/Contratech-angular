@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url(../src/config-css/variables.css);
+@import url(../src/config-css/reset.css);
+
+html,
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  margin: 0 auto;
+}
+
+/* Grid */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 70% 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". main .";
+}
+.main {
+  grid-area: main;
+  padding-top: 55px;
+  padding-bottom: 80px;
+}

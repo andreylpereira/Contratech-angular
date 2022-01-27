@@ -1,0 +1,66 @@
+<body>
+  <app-header></app-header>
+
+  <br />
+  <br />
+  <div class="container">
+    <div class="main">
+      <mat-card>
+        <span>
+          <img src="../../../assets/icons/login-person.svg" alt="" />
+        </span>
+        <mat-card-header>
+          <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <form [formGroup]="loginForm">
+          <mat-form-field class="form">
+            <mat-label>Login</mat-label>
+            <input
+              type="text"
+              matInput
+              formControlName="login"
+              placeholder="Digite seu login"
+            />
+            <mat-error *ngIf="loginForm.get('login')?.errors">
+              Digite um login válido!
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field class="form">
+            <mat-label>Senha</mat-label>
+            <input
+              type="password"
+              matInput
+              formControlName="password"
+              placeholder="Digite sua senha"
+            />
+            <mat-error *ngIf="loginForm.get('password')?.errors">
+              Digite uma senha válida!
+            </mat-error>
+          </mat-form-field>
+        </form>
+        <!-- <mat-card-content>
+          <p class="link">
+            Não possui cadastro? Crie o seu
+            <a >aqui</a> !
+          </p>
+        </mat-card-content> -->
+        <mat-card-footer>
+          <app-button
+            color="primary-login"
+            title="ENTRAR"
+            class="primary"
+            (click)="login()"
+          ></app-button>
+          <app-button
+            color="primary-login-outline"
+            title="CADASTRO"
+            class="secondary"
+            [routerLink]="['/cadastrar']"
+          ></app-button>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</body>

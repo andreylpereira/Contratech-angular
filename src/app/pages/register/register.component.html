@@ -1,0 +1,106 @@
+<body>
+  <app-header></app-header>
+  <div class="container">
+    <div class="main">
+      <app-breadcrumb
+        link=""
+        item="Cadastro de usuário"
+        router=""
+      ></app-breadcrumb>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Cadastro de usuário</mat-card-title>
+        </mat-card-header>
+        <form [formGroup]="registerForm">
+          <mat-form-field>
+            <mat-label>Login</mat-label>
+            <input
+              type="text"
+              matInput
+              formControlName="login"
+              placeholder="Digite seu login"
+            />
+            <mat-error *ngIf="registerForm.get('login')?.errors">
+              Digite um login válido!
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Nome</mat-label>
+            <input
+              type="text"
+              matInput
+              formControlName="firstName"
+              placeholder="Digite seu login"
+            />
+            <mat-error *ngIf="registerForm.get('firstName')?.errors">
+              Digite um login válido!
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Sobrenome</mat-label>
+            <input
+              type="text"
+              matInput
+              formControlName="lastName"
+              placeholder="Digite seu login"
+            />
+            <mat-error *ngIf="registerForm.get('lastName')?.errors">
+              Digite um login válido!
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>E-mail</mat-label>
+            <input
+              type="email"
+              matInput
+              formControlName="email"
+              placeholder="Digite seu login"
+            />
+            <mat-error *ngIf="registerForm.get('email')?.errors">
+              Digite um login válido!
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Senha</mat-label>
+            <input
+              type="password"
+              matInput
+              formControlName="password"
+              placeholder="Digite seu login"
+            />
+            <mat-error *ngIf="registerForm.get('password')?.errors">
+              Digite um login válido!
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Confirmação de Senha</mat-label>
+            <input
+            class="w-100"
+              type="password"
+              matInput
+              formControlName="confirmPassword"
+              placeholder="Digite seu login"
+            />
+            <mat-error *ngIf="registerForm.get('confirmPassword')?.errors">
+              Digite um login válido!
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <br>
+          <app-button
+            color="primary"
+            title="CADASTRAR"
+            class="primary"
+            (click)="register()"
+          ></app-button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</body>

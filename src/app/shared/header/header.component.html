@@ -1,0 +1,55 @@
+<nav class="w-100">
+  <ul>
+    <a class="nav-link logo" [routerLink]="['/']"
+      ><img
+        class="icon-logo"
+        src="../../../assets/icons/logo.svg"
+      />Contratech</a
+    >
+    <li
+      class="nav-link"
+      [routerLink]="['/home']"
+      routerLinkActive="nav-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Home
+    </li>
+    <li
+      class="nav-link"
+      [routerLink]="['/obras']"
+      routerLinkActive="nav-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      *ngIf="isLoggedIn"
+    >
+      Minhas obras
+    </li>
+    <li
+      class="nav-link"
+      [routerLink]="['/cadastrar']"
+      routerLinkActive="nav-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      *ngIf="!isLoggedIn"
+    >
+      Cadastrar
+    </li>
+  </ul>
+  <div class="btn">
+    <div class="user" *ngIf="isLoggedIn">Seja bem vindo,
+      <br><b>{{ user.login }}</b></div>
+    <app-button
+      color="btn-login"
+      title="Log In"
+      [routerLink]="['/login']"
+      *ngIf="!isLoggedIn"
+    ></app-button>
+    <app-button
+    color="btn-login"
+    title="Log Out"
+    (click)="logOut()"
+    *ngIf="isLoggedIn"
+  ></app-button>
+  </div>
+</nav>
+<br />
+<br />
+<br />
