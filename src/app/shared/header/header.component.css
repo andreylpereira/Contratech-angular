@@ -67,3 +67,13 @@ nav li {
 .logo {
   padding: 0 5px;
 }
+
+.user {
+  color: var(--bg-breadcrumb);
+  font: 400 11px Roboto;
+  padding-right: 10px;
+}
+.user > b {
+  font-weight: bold;
+  color: #fff;
+}

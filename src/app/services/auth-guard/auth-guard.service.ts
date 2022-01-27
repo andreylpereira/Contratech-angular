@@ -8,7 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthGuardService implements CanActivate {
   constructor(private jwtHelper: JwtHelperService, private router: Router) {}
 
-  isAuthenticated(): boolean{
+  isAuthenticated(): boolean {
     const session: any = sessionStorage.getItem('currentUser');
     const data = JSON.parse(session);
 
@@ -24,7 +24,10 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(): boolean {
     if (!this.isAuthenticated()) {
-      this.router.navigate(['login']);
+      if (this.router.url !== '/cadastrar' && this.router.url !== '/home' && this.router.url !== '') {
+        this.router.navigate(['login']);
+        return false;
+      }
       return false;
     }
     return true;

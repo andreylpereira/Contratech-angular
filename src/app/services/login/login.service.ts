@@ -23,4 +23,5 @@ export class LoginService {
   logout() {
     sessionStorage.removeItem('currentUser');
   }
+
 }
