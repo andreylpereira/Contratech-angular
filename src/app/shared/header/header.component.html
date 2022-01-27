@@ -19,6 +19,7 @@
       [routerLink]="['/obras']"
       routerLinkActive="nav-link-active"
       [routerLinkActiveOptions]="{ exact: true }"
+      *ngIf="isLoggedIn"
     >
       Minhas obras
     </li>
@@ -27,6 +28,7 @@
       [routerLink]="['/cadastrar']"
       routerLinkActive="nav-link-active"
       [routerLinkActiveOptions]="{ exact: true }"
+      *ngIf="!isLoggedIn"
     >
       Cadastrar
     </li>
@@ -34,9 +36,16 @@
   <div class="btn">
     <app-button
       color="btn-login"
-      title="Login"
+      title="Log In"
       [routerLink]="['/login']"
+      *ngIf="!isLoggedIn"
     ></app-button>
+    <app-button
+    color="btn-login"
+    title="Log Out"
+    (click)="logOut()"
+    *ngIf="isLoggedIn"
+  ></app-button>
   </div>
 </nav>
 <br />

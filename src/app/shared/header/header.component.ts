@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthGuardService } from 'src/app/services/auth-guard/auth-guard.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public isLoggedIn: boolean = false;
+  constructor(private authGuardService: AuthGuardService, private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = this.authGuardService.canActivate();
   }
 
+  logOut() {
+    this.loginService.logout();
+    this.router.navigate(['login']);
+  }
 }

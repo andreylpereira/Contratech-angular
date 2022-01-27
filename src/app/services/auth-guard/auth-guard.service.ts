@@ -6,7 +6,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root',
 })
 export class AuthGuardService implements CanActivate {
-  constructor(public jwtHelper: JwtHelperService, public router: Router) {}
+  constructor(private jwtHelper: JwtHelperService, private router: Router) {}
 
   isAuthenticated(): boolean{
     const session: any = sessionStorage.getItem('currentUser');
