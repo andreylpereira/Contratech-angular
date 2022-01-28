@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListWorkService } from 'src/app/services/list-work/list-work.service';
 
 @Component({
   selector: 'app-list-work',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListWorkComponent implements OnInit {
 
-  constructor() { }
+  constructor(private listWorkService: ListWorkService) { }
 
   ngOnInit(): void {
+    this.listWorkService.getListWork();
   }
 
 }
