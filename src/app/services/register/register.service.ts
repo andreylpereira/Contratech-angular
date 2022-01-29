@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+
+/* Model */
 import Register from 'src/app/pages/register/register.model';
 
 @Injectable({
