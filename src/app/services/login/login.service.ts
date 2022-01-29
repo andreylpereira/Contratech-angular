@@ -23,4 +23,11 @@ export class LoginService {
   logout() {
     sessionStorage.removeItem('currentUser');
   }
+
+  session() {
+    const session: any = sessionStorage.getItem('currentUser');
+    const data = JSON.parse(session);
+
+  }
+
 }

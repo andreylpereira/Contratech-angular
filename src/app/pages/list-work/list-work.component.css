@@ -2,3 +2,21 @@ body {
   background-color: var(--bg-primary);
   background-size: cover;
 }
+
+.title {
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.work {
+font-weight: bold;
+  margin-bottom: 7.5px;
+  float: left;
+
+}
+
+.buttons {
+  margin-top: 7.5px;
+  float: right;
+}
+

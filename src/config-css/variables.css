@@ -2,7 +2,7 @@
   /* Colors */
   --primary: #212121;
   --secondary: #fff;
-  --danger: #f44336;
+  --danger: rgba(244, 67, 54, 0.75);
 
   /* Colors-hover */
   --primary-hover: rgba(33, 33, 33, 0.95);
@@ -10,7 +10,7 @@
 
   /* Colors-active */
   --primary-active: rgba(33, 33, 33, 0.75);
-  --danger-active: rgba(244, 67, 54, 0.75);
+  --danger-active: #f44336;
 
   /* Background-colors */
   --bg-primary: #fdc754;
