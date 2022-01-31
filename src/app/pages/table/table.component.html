@@ -7,6 +7,26 @@
         item="Etapas"
         router="/obras"
       ></app-breadcrumb>
+      <div class="create-stage" style="padding-bottom: 15px">
+        <app-button
+          color="primary"
+          title="NOVA ETAPA"
+        ></app-button>
+      </div>
+      <div *ngFor="let stage of listStages">
+        <mat-expansion-panel style="margin-bottom: 15px">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="title-stage">
+              {{ stage.nomeEtapa }}
+              <img
+              class="icon-edit"
+              src="../../../assets/icons/edit-list.svg"
+            />
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-job [etapaId]=stage.id></app-job>
+        </mat-expansion-panel>
+      </div>
     </div>
   </div>
   <app-footer></app-footer>

@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import Work from 'src/app/models/work.model';
 
 /* Service */
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root',

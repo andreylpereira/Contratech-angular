@@ -17,6 +17,7 @@ import { TableComponent } from './table/table.component';
 import { ReportComponent } from './report/report.component';
 import { ModalRenameWorkComponent } from './list-work/modal-rename-work/modal-rename-work.component';
 import { ModalAddWorkComponent } from './list-work/modal-add-work/modal-add-work.component';
+import { JobComponent } from './table/job/job.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ModalAddWorkComponent } from './list-work/modal-add-work/modal-add-work
     ReportComponent,
     ModalRenameWorkComponent,
     ModalAddWorkComponent,
+    JobComponent,
   ],
   imports: [
     CommonModule,
