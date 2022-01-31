@@ -20,3 +20,6 @@ font-weight: bold;
   float: right;
 }
 
+::ng-deep .container {
+  background-color: var(--bg-primary);
+}

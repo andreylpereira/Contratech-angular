@@ -12,7 +12,6 @@ import { ListWorkService } from 'src/app/services/list-work/list-work.service';
 })
 export class ModalRenameWorkComponent implements OnInit {
   public nomeObra: string = '';
-  public idObra: number = 0;
 
   constructor(
     private listWorkService: ListWorkService,

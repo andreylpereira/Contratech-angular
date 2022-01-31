@@ -18,6 +18,9 @@ import { ReportComponent } from './report/report.component';
 import { ModalRenameWorkComponent } from './list-work/modal-rename-work/modal-rename-work.component';
 import { ModalAddWorkComponent } from './list-work/modal-add-work/modal-add-work.component';
 import { JobComponent } from './table/job/job.component';
+import { ModalAddStageComponent } from './table/modal-add-stage/modal-add-stage.component';
+import { ModalRenameStageComponent } from './table/modal-rename-stage/modal-rename-stage.component';
+import { ModalDeleteStageComponent } from './table/modal-delete-stage/modal-delete-stage.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { JobComponent } from './table/job/job.component';
     ModalRenameWorkComponent,
     ModalAddWorkComponent,
     JobComponent,
+    ModalAddStageComponent,
+    ModalRenameStageComponent,
+    ModalDeleteStageComponent,
   ],
   imports: [
     CommonModule,

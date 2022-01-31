@@ -11,6 +11,7 @@
         <app-button
           color="primary"
           title="NOVA ETAPA"
+          (click)="modalAdd()"
         ></app-button>
       </div>
       <div *ngFor="let stage of listStages">
@@ -19,12 +20,18 @@
             <mat-panel-title class="title-stage">
               {{ stage.nomeEtapa }}
               <img
-              class="icon-edit"
-              src="../../../assets/icons/edit-list.svg"
-            />
+                class="icon-edit"
+                src="../../../assets/icons/edit-list.svg"
+                (click)="modalRename(stage.id)"
+              />
+              <img
+                src="../../../assets/icons/delete-job.svg"
+                class="delete-icon"
+                (click)="modalDelete(stage.id)"
+              />
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <app-job [etapaId]=stage.id></app-job>
+          <app-job [etapaId]="stage.id"></app-job>
         </mat-expansion-panel>
       </div>
     </div>
