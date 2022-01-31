@@ -13,6 +13,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { NgModule } from '@angular/core';
 
@@ -32,7 +33,8 @@ import { NgModule } from '@angular/core';
     MatTooltipModule,
     MatListModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatExpansionModule
   ],
   exports: [
     MatButtonModule,
@@ -49,7 +51,8 @@ import { NgModule } from '@angular/core';
     MatTooltipModule,
     MatListModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatExpansionModule
   ]
 })
 

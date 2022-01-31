@@ -2,3 +2,17 @@ body {
   background-color: var(--bg-primary);
   background-size: cover;
 }
+
+.title-stage {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.icon-edit {
+  padding-left: 5px !important;
+}
+
+::ng-deep .container {
+  background-color: var(--bg-primary);
+}

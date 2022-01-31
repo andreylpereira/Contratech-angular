@@ -3,6 +3,13 @@
   <div class="container">
     <div class="main">
       <app-breadcrumb link="" item="Minhas obras" router=""></app-breadcrumb>
+      <div class="create-work" style="padding-bottom: 15px">
+        <app-button
+          color="primary"
+          title="NOVA OBRA"
+          (click)="modalAdd()"
+        ></app-button>
+      </div>
       <mat-card>
         <mat-card-header>
           <mat-card-title class="title">Minhas Obras</mat-card-title>
@@ -10,11 +17,14 @@
         <mat-card-content>
           <table mat-table [dataSource]="listWorks" class="w-100">
             <ng-container matColumnDef="nomeObra">
-              <!-- <th mat-header-cell *matHeaderCellDef>ASDAS</th> -->
               <td mat-cell *matCellDef="let work">
                 <div class="work">
                   {{ work.nomeObra }}
-                  <img class="icon-edit" src="../../../assets/icons/edit-list.svg" />
+                  <img
+                    class="icon-edit"
+                    src="../../../assets/icons/edit-list.svg"
+                    (click)="modalRename(work.id)"
+                  />
                 </div>
               </td>
             </ng-container>
@@ -22,21 +32,26 @@
               <th mat-header-cell *matHeaderCellDef></th>
               <td mat-cell *matCellDef="let work">
                 <div class="buttons">
-                  <app-button color="primary" title="EDITAR"></app-button>
+                  <app-button
+                    color="primary"
+                    title="EDITAR"
+                    (click)="goToEtapas(work.id)"
+                  ></app-button>
                   <app-button
                     color="danger"
                     title="EXCLUIR"
                     style="padding-left: 5px"
+                    (click)="removeWork(work.id)"
                   ></app-button>
                   <app-button
                     color="primary-outline"
                     title="RELATÓRIO"
                     style="padding-left: 5px"
+                    (click)="goToRelatorio(work.id)"
                   ></app-button>
                 </div>
               </td>
             </ng-container>
-            <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
           </table>
         </mat-card-content>

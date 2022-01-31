@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Você deseja deletar a etapa?</h1>
+
+<div mat-dialog-content>
+  <p>Clique em deletar se você deseja deletar esta etapa.</p>
+</div>
+<div mat-dialog-actions>
+  <app-button color="danger" title="DELETAR" (click)="delStage()"></app-button>
+  <app-button
+    color="danger-outline"
+    style="padding-left: 5px"
+    title="CANCELAR"
+    (click)="cancel()"
+  ></app-button>
+</div>

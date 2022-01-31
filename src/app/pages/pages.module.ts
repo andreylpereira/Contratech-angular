@@ -15,7 +15,12 @@ import { LoginComponent } from './login/login.component';
 import { ListWorkComponent } from './list-work/list-work.component';
 import { TableComponent } from './table/table.component';
 import { ReportComponent } from './report/report.component';
-
+import { ModalRenameWorkComponent } from './list-work/modal-rename-work/modal-rename-work.component';
+import { ModalAddWorkComponent } from './list-work/modal-add-work/modal-add-work.component';
+import { JobComponent } from './table/job/job.component';
+import { ModalAddStageComponent } from './table/modal-add-stage/modal-add-stage.component';
+import { ModalRenameStageComponent } from './table/modal-rename-stage/modal-rename-stage.component';
+import { ModalDeleteStageComponent } from './table/modal-delete-stage/modal-delete-stage.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +30,12 @@ import { ReportComponent } from './report/report.component';
     ListWorkComponent,
     TableComponent,
     ReportComponent,
+    ModalRenameWorkComponent,
+    ModalAddWorkComponent,
+    JobComponent,
+    ModalAddStageComponent,
+    ModalRenameStageComponent,
+    ModalDeleteStageComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +43,6 @@ import { ReportComponent } from './report/report.component';
     RoutingModule,
     SharedModule,
     ReactiveFormsModule,
-
-  ]
+  ],
 })
-export class PagesModule { }
+export class PagesModule {}

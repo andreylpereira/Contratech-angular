@@ -13,42 +13,40 @@ import { TableComponent } from 'src/app/pages/table/table.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home', pathMatch: 'full'
-
+    redirectTo: '/home',
+    pathMatch: 'full',
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'cadastrar',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'obras',
     component: ListWorkComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
-    path: 'obras/1/etapas',
+    path: 'obras/:id/etapas',
     component: TableComponent,
-    canActivate: [AuthGuard]
-  }
-  ,
+    canActivate: [AuthGuard],
+  },
   {
-    path: 'obras/1/relatorio',
+    path: 'obras/:id/relatorio',
     component: ReportComponent,
-    canActivate: [AuthGuard]
-  }
-
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class RoutingModule { }
+export class RoutingModule {}

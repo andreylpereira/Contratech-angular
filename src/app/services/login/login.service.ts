@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+
+/* Model */
 import Login from 'src/app/pages/login/login.model';
 
 @Injectable({
@@ -22,12 +24,6 @@ export class LoginService {
 
   logout() {
     sessionStorage.removeItem('currentUser');
-  }
-
-  session() {
-    const session: any = sessionStorage.getItem('currentUser');
-    const data = JSON.parse(session);
-
   }
 
 }

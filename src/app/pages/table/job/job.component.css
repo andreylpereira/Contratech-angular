@@ -1,0 +1,13 @@
+
+::ng-deep .mat-header-row {
+  max-height: 35px !important;
+}
+
+.table-row {
+  height: 25px !important;
+  vertical-align: middle;
+}
+
+.delete-icon {
+  padding-top:3.5px
+}

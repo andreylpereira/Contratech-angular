@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 /* Model */
-import Work from 'src/app/models/work.model';
+import Stage from 'src/app/models/stage.model';
 
 /* Service */
-import { UserService } from '../user/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ListWorkService {
+export class TableService {
+  [x: string]: any;
   private userId: number = 0;
   private userToken: string = '';
 
@@ -19,9 +20,9 @@ export class ListWorkService {
     this.userToken = this.userService.getUser().token;
   }
 
-  getListWork() {
-    return this.http.get<Array<Work>>(
-      `/api/api/usuarios/${this.userId}/obras`,
+  getListStage(idObra: any) {
+    return this.http.get<Array<Stage>>(
+      `/api/api/usuarios/${this.userId}/obras/${idObra}/etapas`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -31,25 +32,25 @@ export class ListWorkService {
     );
   }
 
-  renameWork(nomeObra: string, idObra: number) {
+  renameStage(idObra: number, nomeEtapa: string, idEtapa: number) {
     return this.http.put(
-      `/api/api/usuarios/${this.userId}/obras/${idObra}`,
-      { nomeObra: nomeObra },
+      `/api/api/usuarios/${this.userId}/obras/${idObra}/etapas/${idEtapa}`,
+      { nomeEtapa: nomeEtapa },
       { headers: { Authorization: 'Bearer ' + this.userToken } }
     );
   }
 
-  addWork(nomeObra: string) {
+  addStage(idObra: number, nomeEtapa: string) {
     return this.http.post(
-      `/api/api/usuarios/${this.userId}/obras`,
-      { nomeObra: nomeObra },
+      `/api/api/usuarios/${this.userId}/obras/${idObra}/etapas`,
+      { nomeEtapa: nomeEtapa },
       { headers: { Authorization: 'Bearer ' + this.userToken } }
     );
   }
 
-  deleteWork(idObra: number) {
+  deleteStage(idObra: number, idEtapa: number) {
     return this.http.delete(
-      `/api/api/usuarios/${this.userId}/obras/${idObra}`,
+      `/api/api/usuarios/${this.userId}/obras/${idObra}/etapas/${idEtapa}`,
       { headers: { Authorization: 'Bearer ' + this.userToken } }
     );
   }

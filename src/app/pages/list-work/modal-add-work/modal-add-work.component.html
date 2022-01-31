@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Adicione uma obra:</h1>
+<form [formGroup]="addForm">
+  <div mat-dialog-content>
+    <p>Digite o nome:</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Obra</mat-label>
+      <input matInput formControlName="nomeObra" />
+      <mat-error *ngIf="addForm.get('nomeObra')?.errors">
+        Digite o nome entre 5 e 35 caracteres!
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <app-button color="primary" title="ADICIONAR" (click)="addWork()"></app-button>
+    <app-button
+      color="danger-outline"
+      style="padding-left: 5px"
+      title="CANCELAR"
+      (click)="cancel()"
+    ></app-button>
+  </div>
+</form>
