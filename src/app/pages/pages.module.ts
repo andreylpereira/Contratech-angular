@@ -15,7 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { ListWorkComponent } from './list-work/list-work.component';
 import { TableComponent } from './table/table.component';
 import { ReportComponent } from './report/report.component';
-
+import { ModalRenameWorkComponent } from './list-work/modal-rename-work/modal-rename-work.component';
+import { ModalAddWorkComponent } from './list-work/modal-add-work/modal-add-work.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { ReportComponent } from './report/report.component';
     ListWorkComponent,
     TableComponent,
     ReportComponent,
+    ModalRenameWorkComponent,
+    ModalAddWorkComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,6 @@ import { ReportComponent } from './report/report.component';
     RoutingModule,
     SharedModule,
     ReactiveFormsModule,
-
-  ]
+  ],
 })
-export class PagesModule { }
+export class PagesModule {}

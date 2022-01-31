@@ -1,21 +1,56 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 /* Model */
 import Work from 'src/app/models/work.model';
 
+/* Service */
+import { UserService } from 'src/app/services/user.service';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ListWorkService {
+  private userId: number = 0;
+  private userToken: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private userService: UserService, private http: HttpClient) {
+    this.userId = this.userService.getUser().id;
+    this.userToken = this.userService.getUser().token;
+  }
 
   getListWork() {
-    const session: any = sessionStorage.getItem('currentUser');
-    const data = JSON.parse(session);
+    return this.http.get<Array<Work>>(
+      `/api/api/usuarios/${this.userId}/obras`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + this.userToken,
+        },
+      }
+    );
+  }
 
-    return this.http.get<Array<Work>>(`/api/api/usuarios/${data.id}/obras`, {headers: {'Authorization': 'Bearer ' + data.token}});
+  renameWork(nomeObra: string, idObra: number) {
+    return this.http.put(
+      `/api/api/usuarios/${this.userId}/obras/${idObra}`,
+      { nomeObra: nomeObra },
+      { headers: { Authorization: 'Bearer ' + this.userToken } }
+    );
+  }
+
+  addWork(nomeObra: string) {
+    return this.http.post(
+      `/api/api/usuarios/${this.userId}/obras`,
+      { nomeObra: nomeObra },
+      { headers: { Authorization: 'Bearer ' + this.userToken } }
+    );
+  }
+
+  deleteWork(idObra: number) {
+    return this.http.delete(
+      `/api/api/usuarios/${this.userId}/obras/${idObra}`,
+      { headers: { Authorization: 'Bearer ' + this.userToken } }
+    );
   }
 }

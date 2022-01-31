@@ -1,0 +1,16 @@
+mat-form-field {
+  width: 100%;
+}
+
+/* Mudando cor do input do material */
+::ng-deep .mat-focused .mat-form-field-label {
+  color: var(--primary) !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: var(--primary) !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: var(--primary) !important;
+}
