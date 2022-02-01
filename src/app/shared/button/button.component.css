@@ -23,7 +23,7 @@
 .primary-outline,
 .danger,
 .danger-outline {
-  font: bold 16px Roboto;
+  font: bold 13px Roboto;
   height: 35px;
   min-width: 110px;
   max-width: auto;
@@ -138,4 +138,8 @@
 .register-outline:active {
   color: var(--primary-active);
   border-color: var(--primary-active);
+}
+
+button {
+  cursor: pointer;
 }

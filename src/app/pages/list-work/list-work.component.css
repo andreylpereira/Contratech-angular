@@ -20,6 +20,10 @@ font-weight: bold;
   float: right;
 }
 
+.icon-edit {
+  cursor: pointer;
+}
+
 ::ng-deep .container {
   background-color: var(--bg-primary);
 }
