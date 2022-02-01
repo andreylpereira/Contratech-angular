@@ -18,6 +18,7 @@ import Work from '../../../app/models/work.model';
 export class ListWorkComponent implements OnInit {
   listWorks: Work[] = [];
   displayedColumns: string[] = ['nomeObra', 'id'];
+  disabled: boolean = false;
 
   constructor(
     private listWorkService: ListWorkService,

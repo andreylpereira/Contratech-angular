@@ -37,18 +37,37 @@
                     title="EDITAR"
                     (click)="goToEtapas(work.id)"
                   ></app-button>
+
                   <app-button
                     color="danger"
                     title="EXCLUIR"
                     style="padding-left: 5px"
                     (click)="removeWork(work.id)"
                   ></app-button>
-                  <app-button
-                    color="primary-outline"
-                    title="RELATÓRIO"
+
+                  <button
+                    *ngIf="
+                      work.valorTotalFinal !== 0 &&
+                      work.percentualMedioFinal !== 0
+                    "
+                    class="primary-outline"
                     style="padding-left: 5px"
                     (click)="goToRelatorio(work.id)"
-                  ></app-button>
+                  >
+                    RELATÓRIO
+                  </button>
+
+                  <button
+                    *ngIf="
+                      work.valorTotalFinal === 0 &&
+                      work.percentualMedioFinal === 0
+                    "
+                    class="primary-outline disabled"
+                    style="padding-left: 5px"
+                    [disabled]="true"
+                  >
+                    RELATÓRIO
+                  </button>
                 </div>
               </td>
             </ng-container>

@@ -9,13 +9,13 @@ body {
 }
 
 .work {
-font-weight: bold;
+  font-weight: bold;
   margin-bottom: 7.5px;
   float: left;
-
 }
 
 .buttons {
+  display: flex;
   margin-top: 7.5px;
   float: right;
 }
@@ -26,4 +26,36 @@ font-weight: bold;
 
 ::ng-deep .container {
   background-color: var(--bg-primary);
+}
+
+/* Botão relatório */
+.primary-outline {
+  margin-left: 5px;
+  font: bold 13px Roboto;
+  height: 35px;
+  min-width: 110px;
+  max-width: auto;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05));
+  border-radius: 15px;
+  color: var(--primary);
+  background: var(--secondary);
+  border: 1px solid var(--primary);
+}
+
+.primary-outline:hover {
+  color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.primary-outline:active {
+  color: var(--primary-active);
+  border-color: var(--primary-active);
+}
+
+.disabled,
+.disabled:hover,
+.disabled:active {
+  background-color: rgba(235, 235, 235, 0.75);
+  color: rgba(200, 200, 200, 0.5);
+  border-color: rgb(200, 200, 200, 0.5);
 }

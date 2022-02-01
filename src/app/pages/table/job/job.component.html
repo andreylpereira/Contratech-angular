@@ -14,9 +14,9 @@
 >
   <ng-container matColumnDef="Serviço">
     <th mat-header-cell *matHeaderCellDef>Serviço</th>
-    <div class="job">
+    <div>
       <td mat-cell *matCellDef="let a">
-        <b><input type="text" value="{{ a.nomeServico }}" /></b>
+        <b><input type="text" value="{{ a.nomeServico }}"/></b>
       </td>
     </div>
   </ng-container>
@@ -24,17 +24,18 @@
     <th mat-header-cell *matHeaderCellDef>Preço</th>
     <div class="job">
       <td mat-cell *matCellDef="let b">
+        R$:
         <input type="number" value="{{ b.preco }}" />
       </td>
     </div>
   </ng-container>
   <ng-container matColumnDef="Quantidade">
-    <th mat-header-cell *matHeaderCellDef style="text-align: center">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center; width: 40px">
       Quantidade
     </th>
     <div class="job">
       <td mat-cell *matCellDef="let c" style="text-align: center">
-        <input type="number" value="{{ c.quantidade }}" style="text-align: center"/>
+        <input type="number" value="{{ c.quantidade }}" style="text-align: center; width: 40px"/>
       </td>
     </div>
   </ng-container>
@@ -43,7 +44,7 @@
       Porcentagem
     </th>
     <td mat-cell *matCellDef="let d" style="text-align: center">
-      <input type="number" value="{{ d.porcentagem }}" style="text-align: center"/>
+      <input type="number" value="{{ d.porcentagem }}" style="text-align: center; width: 25px"/>%
     </td>
   </ng-container>
   <ng-container matColumnDef="id">
