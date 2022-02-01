@@ -1,8 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import Job from 'src/app/models/job.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+/* Services */
 import { JobService } from 'src/app/services/job/job.service';
 
+import Job from 'src/app/models/job.model';
 @Component({
   selector: 'app-job',
   templateUrl: './job.component.html',
@@ -23,7 +26,11 @@ export class JobComponent implements OnInit {
   ];
   columnsToDisplay = ['Serviço', 'Preço', 'Quantidade', 'Porcentagem', 'id'];
 
-  constructor(private jobService: JobService, public route: ActivatedRoute) {
+  constructor(
+    private jobService: JobService,
+    private formBuilder: FormBuilder,
+    public route: ActivatedRoute
+  ) {
     this.obraId = this.route.snapshot.paramMap.get('id');
   }
 
@@ -63,5 +70,9 @@ export class JobComponent implements OnInit {
           .getJobs(this.obraId, this.etapaId)
           .subscribe((newList) => (this.listJobs = newList));
       });
+  }
+
+  click() {
+    console.log(this.listJobs);
   }
 }
