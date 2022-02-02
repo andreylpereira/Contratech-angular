@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 /* Services */
 import { JobService } from 'src/app/services/job/job.service';
+import { ReportService } from 'src/app/services/report/report.service';
 
 @Component({
   selector: 'app-job',
@@ -20,6 +21,7 @@ export class JobComponent implements OnInit {
 
   constructor(
     private jobService: JobService,
+    private reportService: ReportService,
     private fb: FormBuilder,
     public route: ActivatedRoute
   ) {
@@ -86,6 +88,8 @@ export class JobComponent implements OnInit {
     return this.jobService
       .putAllJob(this.obraId, this.etapaId, data)
       .subscribe(() => {
+
+        this.reportService.workReport(this.obraId).subscribe();
         this.jobsForm.controls.jobs.clear();
         this.ngOnInit();
       });

@@ -17,7 +17,7 @@ export class ReportService {
   }
 
   workReport(idObra: number) {
-    return this.http.get(`/api/api/usuarios/${this.userId}/obras/${idObra}`, {
+    return this.http.get(`/api/api/usuarios/${this.userId}/obras/${idObra}/relatorio`, {
       headers: { Authorization: `Bearer ${this.userToken}` },
     });
   }
