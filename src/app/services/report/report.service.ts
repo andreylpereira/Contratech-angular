@@ -4,6 +4,9 @@ import { HttpClient } from '@angular/common/http';
 /* Service */
 import { UserService } from '../user/user.service';
 
+/* Model */
+import Work from 'src/app/models/work.model';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -17,8 +20,11 @@ export class ReportService {
   }
 
   workReport(idObra: number) {
-    return this.http.get(`/api/api/usuarios/${this.userId}/obras/${idObra}/relatorio`, {
-      headers: { Authorization: `Bearer ${this.userToken}` },
-    });
+    return this.http.get<Work>(
+      `/api/api/usuarios/${this.userId}/obras/${idObra}/relatorio`,
+      {
+        headers: { Authorization: `Bearer ${this.userToken}` },
+      }
+    );
   }
 }

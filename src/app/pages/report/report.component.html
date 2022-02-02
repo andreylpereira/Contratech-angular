@@ -1,3 +1,47 @@
-<p>{{ report.nomeObra }}</p>
-<p>{{ report.percentualMedioFinal }}</p>
-<p>{{ report.valorTotalFinal }}</p>
+<body>
+  <div class="container">
+    <div class="main" *ngIf="report != null">
+      <header>
+        <p>Contrato: 0{{ report.id }}</p>
+        <p>Obra: {{ report.nomeObra }}</p>
+
+        <h1 style="text-align: center">Relatório</h1>
+      </header>
+      <main>
+        <div>
+          <table class="greyTable">
+            <thead>
+              <tr>
+                <th>Etapa</th>
+                <th>Valor Total</th>
+                <th>Concluído</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let s of stageList">
+                <td style="font-weight: bold">{{ s.nomeEtapa }}</td>
+                <td>{{ s.valorTotal | currency: "R$" }}</td>
+                <td>{{ s.percentualMedio }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+      <footer>
+        <div class="result-final">
+          <p>
+            Valor Total: <b>{{ report.valorTotalFinal | currency: "R$" }}</b>
+          </p>
+          <br />
+          <p>
+            Concluído: <b>{{ report.percentualMedioFinal }}%</b>
+          </p>
+        </div>
+        <div class="signature">
+          <hr style="width: 250px; border: 1px solid rgba(0, 0, 0, 0.5)" />
+          <p style="text-align: center">Assinatura</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>

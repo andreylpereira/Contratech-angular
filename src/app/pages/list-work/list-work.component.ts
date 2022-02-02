@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+
+/* Modals */
 import { ModalAddWorkComponent } from 'src/app/pages/list-work/modal-add-work/modal-add-work.component';
 import { ModalRenameWorkComponent } from 'src/app/pages/list-work/modal-rename-work/modal-rename-work.component';
 
@@ -72,6 +74,10 @@ export class ListWorkComponent implements OnInit {
   }
 
   goToRelatorio(id: number) {
-    this.router.navigate([`obras/${id}/relatorio`]);
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree([`obras/${id}/relatorio`])
+    );
+
+    window.open(url, '_blank');
   }
 }

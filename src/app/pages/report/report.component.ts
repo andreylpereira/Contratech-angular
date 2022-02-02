@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import Stage from 'src/app/models/stage.model';
+import Work from 'src/app/models/work.model';
 import { ReportService } from 'src/app/services/report/report.service';
 
 @Component({
@@ -9,21 +11,29 @@ import { ReportService } from 'src/app/services/report/report.service';
 })
 export class ReportComponent implements OnInit {
   obraId: any;
-  report: any;
+  report: Work | any;
+  stageList: Stage[] = [];
 
   constructor(
     private reportService: ReportService,
     public route: ActivatedRoute
   ) {
-    this.obraId = this.route.snapshot.paramMap.get('id');
   }
 
   ngOnInit(): void {
-  this.reportService.workReport(this.obraId).subscribe(result => this.report = result)
+  this.obraId = this.route.snapshot.paramMap.get('id');
+  this.reportService.workReport(this.obraId).subscribe(result => {
+    this.report = result
+    this.stageList.push(...result.etapas);
+  }
+  )
+
+
   }
 
   click() {
     console.log(this.report);
+    console.log(this.stageList);
 
   }
 }
