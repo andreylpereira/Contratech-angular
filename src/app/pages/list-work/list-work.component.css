@@ -52,9 +52,7 @@ body {
   border-color: var(--primary-active);
 }
 
-.disabled,
-.disabled:hover,
-.disabled:active {
+.disabled, .disabled:hover, .disabled:active {
   background-color: rgba(235, 235, 235, 0.75);
   color: rgba(200, 200, 200, 0.5);
   border-color: rgb(200, 200, 200, 0.5);

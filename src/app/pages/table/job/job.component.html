@@ -1,82 +1,74 @@
-<p class="msg-table-undefined" *ngIf="listJobs.length === 0">
+<p
+  class="msg-table-undefined"
+  *ngIf="jobsForm.controls.jobs.controls.length == 0"
+>
   Não há nenhum serviço, adicionei um clicando em "Adicionar um novo serviço".
 </p>
-<form>
-  <table
-    mat-table
-    [dataSource]="listJobs"
-    class="w-100"
-    *ngIf="listJobs.length > 0"
-  >
-    <ng-container matColumnDef="Serviço">
-      <th mat-header-cell *matHeaderCellDef>Serviço</th>
-      <div>
-        <td mat-cell *matCellDef="let a; index as i">
-          <b><input type="text" value="{{ a.nomeServico }}" /></b>
-        </td>
+<div *ngIf="jobsForm.controls.jobs.controls.length != 0">
+  <form [formGroup]="jobsForm">
+    <div class="divTable greyTable">
+      <div class="divTableHeading">
+        <div class="divTableRow">
+          <div class="divTableHead">Serviço</div>
+          <div class="divTableHead" style="text-align: center">Preço</div>
+          <div class="divTableHead" style="text-align: center">Quantidade</div>
+          <div class="divTableHead" style="text-align: center">Porcentagem</div>
+          <div class="divTableHead"></div>
+        </div>
       </div>
-    </ng-container>
-    <ng-container matColumnDef="Preço">
-      <th mat-header-cell *matHeaderCellDef>Preço</th>
-      <div class="job">
-        <td mat-cell *matCellDef="let b; index as i">
-          R$:
-          <input type="number" value="{{ b.preco }}" />
-        </td>
-      </div>
-    </ng-container>
-    <ng-container matColumnDef="Quantidade">
-      <th mat-header-cell *matHeaderCellDef style="text-align: center">
-        Quantidade
-      </th>
-      <div class="job">
-        <td mat-cell *matCellDef="let c; index as i" style="text-align: center">
-          <input
-            type="number"
-            value="{{ c.quantidade }}"
-            style="text-align: center"
-          />
-        </td>
-      </div>
-    </ng-container>
-    <ng-container matColumnDef="Porcentagem">
-      <th mat-header-cell *matHeaderCellDef style="text-align: center">
-        Porcentagem
-      </th>
-      <td mat-cell *matCellDef="let d; index as i" style="text-align: center">
-        <input
-          type="number"
-          value="{{ d.porcentagem }}"
-          style="text-align: center"
-        />%
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <div>
-        <td mat-cell *matCellDef="let e; index as i" style="padding-top: 3.5px">
-          <img
-            src="../../../../assets/icons/delete-job.svg"
-            class="delete-icon"
-            (click)="deleteJob(e.id)"
-          />
-        </td>
-      </div>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr
-      mat-row
-      *matRowDef="let myRowData; columns: columnsToDisplay"
-      class="table-row"
-    ></tr>
-  </table>
-</form>
+      <ng-container *ngFor="let jobsGroup of jobsForm.controls.jobs.controls">
+        <div class="divTableBody" [formGroup]="jobsGroup">
+          <div class="divTableRow">
+            <div class="divTableCell" style="padding-top: 10px">
+              <p><input type="text" formControlName="nomeServico" /></p>
+            </div>
+            <div class="divTableCell">
+              <p>
+                <input
+                  type="number"
+                  style="text-align: center"
+                  formControlName="preco"
+                />
+              </p>
+            </div>
+            <div class="divTableCell">
+              <p>
+                <input
+                  type="number"
+                  style="text-align: center"
+                  formControlName="quantidade"
+                />
+              </p>
+            </div>
+            <div class="divTableCell">
+              <p>
+                <input
+                  type="number"
+                  style="text-align: center"
+                  formControlName="porcentagem"
+                />
+              </p>
+            </div>
+            <div class="divTableCell">
+              <!-- <object class="delete-icon" data="../../../../assets/icons/delete-job.svg" type=""></object> -->
+              <div class="icon">
+                <input type="hidden" formControlName="id" />
+                <p (click)="deleteJob(jobsGroup.get('id').value)">X</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </form>
+</div>
 <div class="addJob" (click)="createJob()">Adicionar um novo serviço</div>
 <br />
-<app-button color="primary" title="SALVAR" (click)="click()"></app-button>
+<app-button color="primary" title="SALVAR" (click)="updateAllJobs()"></app-button>
 <app-button
   color="danger-outline"
   title="EXCLUIR SERVIÇOS"
   style="padding-left: 10px"
   (click)="deleteAllJob()"
 ></app-button>
+
