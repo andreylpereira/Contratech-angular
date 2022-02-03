@@ -54,6 +54,11 @@
   cursor: pointer;
 }
 
+span {
+  font-size: 8px;
+  color: rgb(255, 75, 75);
+}
+
 b {
   font-weight: bold !important;
 }
@@ -112,9 +117,11 @@ div.greyTable {
   );
   background: linear-gradient(to bottom, #ffffff 0%, #ffffff 66%, #ffffff 100%);
 }
+
 .divTable.greyTable .divTableHeading .divTableHead {
   font-family: "Roboto";
 }
+
 .divTableHeading {
   font-size: 14px;
   font-weight: Medium;
@@ -129,18 +136,22 @@ div.greyTable {
 .greyTable .tableFootStyle {
   font-size: 14px;
 }
+
 .greyTable .tableFootStyle .links {
   text-align: right;
 }
+
 .greyTable .tableFootStyle .links a {
   display: inline-block;
   color: #ffffff;
   padding: 2px 8px;
   border-bottom: 1px solid #b1b1b1;
 }
+
 .greyTable.outerTableFooter {
   border-top: none;
 }
+
 .greyTable.outerTableFooter .tableFootStyle {
   padding: 3px 5px;
 }
@@ -148,25 +159,32 @@ div.greyTable {
 .divTable {
   display: table;
 }
+
 .divTableRow {
   display: table-row;
 }
+
 .divTableHeading {
   display: table-header-group;
 }
+
 .divTableCell,
 .divTableHead {
   display: table-cell;
 }
+
 .divTableHeading {
   display: table-header-group;
 }
+
 .divTableFoot {
   display: table-footer-group;
 }
+
 .divTableBody {
   display: table-row-group;
 }
+
 .mat-progress-spinner {
   margin: 0 auto;
 }

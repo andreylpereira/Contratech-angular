@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /* Services */
 import { JobService } from 'src/app/services/job/job.service';
 import { ReportService } from 'src/app/services/report/report.service';
 
+/* Validations custom do formulário */
+import formValidations from '../job/form-validations';
 @Component({
   selector: 'app-job',
   templateUrl: './job.component.html',
@@ -13,8 +15,8 @@ import { ReportService } from 'src/app/services/report/report.service';
 })
 export class JobComponent implements OnInit {
   @Input()
-  etapaId: number | undefined;
-  obraId: any;
+  public etapaId: number | undefined;
+  private obraId: any;
   public jobsForm: any;
   public listJobs: any;
   loader: boolean = false;
@@ -49,14 +51,31 @@ export class JobComponent implements OnInit {
     for (let i = 0; i < x; i++) {
       let newUsergroup: FormGroup = this.fb.group({
         id: [this.listJobs[i].id],
-        nomeServico: [this.listJobs[i].nomeServico],
-        preco: [this.listJobs[i].preco],
-        quantidade: [this.listJobs[i].quantidade],
-        porcentagem: [this.listJobs[i].porcentagem],
+        nomeServico: [
+          this.listJobs[i].nomeServico,
+          [
+            Validators.required,
+            Validators.minLength(5),
+            Validators.maxLength(35),
+          ],
+        ],
+        preco: [
+          this.listJobs[i].preco,
+          [Validators.required, formValidations.precoValidator],
+        ],
+        quantidade: [
+          this.listJobs[i].quantidade,
+          [Validators.required, formValidations.quantidadeValidator],
+        ],
+        porcentagem: [
+          this.listJobs[i].porcentagem,
+          [Validators.required, formValidations.porcentagemValidator],
+        ],
       });
       this.jobsForm.controls.jobs.push(newUsergroup);
     }
   }
+
 
   deleteJob(id: number) {
     this.loader = true;
@@ -68,6 +87,7 @@ export class JobComponent implements OnInit {
       });
   }
 
+
   createJob() {
     this.loader = true;
     return this.jobService.addJob(this.obraId, this.etapaId).subscribe(() => {
@@ -75,6 +95,7 @@ export class JobComponent implements OnInit {
       this.ngOnInit();
     });
   }
+
 
   deleteAllJob() {
     this.loader = true;
@@ -86,6 +107,7 @@ export class JobComponent implements OnInit {
         this.ngOnInit();
       });
   }
+
 
   updateAllJobs() {
     const data = this.jobsForm.controls.jobs['value'];

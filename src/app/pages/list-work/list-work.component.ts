@@ -18,7 +18,7 @@ import Work from '../../../app/models/work.model';
   styleUrls: ['./list-work.component.css'],
 })
 export class ListWorkComponent implements OnInit {
-  listWorks: Work[] = [];
+  public listWorks: Work[] = [];
   displayedColumns: string[] = ['nomeObra', 'id'];
   disabled: boolean = false;
 

@@ -4,7 +4,6 @@
       <header>
         <p>Contrato: 0{{ report.id }}</p>
         <p>Obra: {{ report.nomeObra }}</p>
-
         <h1 style="text-align: center">Relatório</h1>
       </header>
       <main>
@@ -21,7 +20,7 @@
               <tr *ngFor="let s of stageList">
                 <td style="font-weight: bold">{{ s.nomeEtapa }}</td>
                 <td>{{ s.valorTotal | currency: "R$" }}</td>
-                <td>{{ s.percentualMedio }}</td>
+                <td>{{ s.percentualMedio }}%</td>
               </tr>
             </tbody>
           </table>

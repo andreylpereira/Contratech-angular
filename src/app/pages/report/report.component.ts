@@ -10,30 +10,25 @@ import { ReportService } from 'src/app/services/report/report.service';
   styleUrls: ['./report.component.css'],
 })
 export class ReportComponent implements OnInit {
-  obraId: any;
-  report: Work | any;
-  stageList: Stage[] = [];
+  private obraId: any;
+  public report: Work | any;
+  public stageList: Stage[] = [];
 
   constructor(
     private reportService: ReportService,
     public route: ActivatedRoute
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
-  this.obraId = this.route.snapshot.paramMap.get('id');
-  this.reportService.workReport(this.obraId).subscribe(result => {
-    this.report = result
-    this.stageList.push(...result.etapas);
-  }
-  )
-
-
+    this.obraId = this.route.snapshot.paramMap.get('id');
+    this.reportService.workReport(this.obraId).subscribe((result) => {
+      this.report = result;
+      this.stageList.push(...result.etapas);
+    });
   }
 
   click() {
     console.log(this.report);
     console.log(this.stageList);
-
   }
 }
