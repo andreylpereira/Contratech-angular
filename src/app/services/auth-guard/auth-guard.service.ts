@@ -9,7 +9,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private jwtHelper: JwtHelperService, private router: Router) {}
 
   isAuthenticated(): boolean {
-    const session: any = sessionStorage.getItem('currentUser');
+    const session: any = localStorage.getItem('currentUser');
     const data = JSON.parse(session);
 
     if (data) {

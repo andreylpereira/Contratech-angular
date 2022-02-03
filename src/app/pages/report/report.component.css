@@ -1,0 +1,90 @@
+.container {
+  background-color: #fff;
+  padding-top: 10%;
+}
+
+h1 {
+  padding-top: 5%;
+  padding-bottom: 15px;
+  font-weight: bold;
+}
+
+main {
+  padding-bottom: 30px;
+}
+table.greyTable {
+  background-color: #ffffff;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table.greyTable td,
+table.greyTable th {
+  border: 0px solid #aaaaaa;
+  padding: 6px 5px;
+}
+
+table.greyTable tbody td {
+  font-size: 13px;
+  color: #000000;
+}
+
+table.greyTable thead {
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 66%, #ffffff 100%);
+  background: -webkit-linear-gradient(
+    top,
+    #ffffff 0%,
+    #ffffff 66%,
+    #ffffff 100%
+  );
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 66%, #ffffff 100%);
+  border-bottom: 1px solid #444444;
+}
+
+table.greyTable thead th {
+  font-size: 13px;
+  font-weight: Medium;
+  color: #989898;
+  text-align: center;
+}
+
+table.greyTable thead th:first-child {
+  border-left: none;
+}
+
+table.greyTable tfoot td {
+  font-size: 14px;
+}
+table.greyTable tfoot .links {
+  text-align: right;
+}
+table.greyTable tfoot .links a {
+  display: inline-block;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+tr {
+  border-bottom: 1px solid #ccc;
+}
+
+p {
+  margin: 0;
+  font-weight: bold;
+}
+
+p > b {
+  color: rgba(255, 0, 0, 0.815);
+}
+.result-final {
+  padding: 10px;
+  border: 0.5px solid #ccc;
+  background-color: rgba(245, 245, 245, 0.5);
+}
+
+.signature {
+  margin-top: 60px;
+}

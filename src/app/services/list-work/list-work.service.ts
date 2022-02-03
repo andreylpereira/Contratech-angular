@@ -25,7 +25,7 @@ export class ListWorkService {
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + this.userToken,
+          Authorization: `Bearer ${this.userToken}`,
         },
       }
     );
@@ -35,7 +35,7 @@ export class ListWorkService {
     return this.http.put(
       `/api/api/usuarios/${this.userId}/obras/${idObra}`,
       { nomeObra: nomeObra },
-      { headers: { Authorization: 'Bearer ' + this.userToken } }
+      { headers: { Authorization: `Bearer ${this.userToken}` } }
     );
   }
 
@@ -43,14 +43,14 @@ export class ListWorkService {
     return this.http.post(
       `/api/api/usuarios/${this.userId}/obras`,
       { nomeObra: nomeObra },
-      { headers: { Authorization: 'Bearer ' + this.userToken } }
+      { headers: { Authorization: `Bearer ${this.userToken}` } }
     );
   }
 
   deleteWork(idObra: number) {
     return this.http.delete(
       `/api/api/usuarios/${this.userId}/obras/${idObra}`,
-      { headers: { Authorization: 'Bearer ' + this.userToken } }
+      { headers: { Authorization: `Bearer ${this.userToken}` } }
     );
   }
 }

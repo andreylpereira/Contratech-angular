@@ -1,4 +1,4 @@
-import Stage from "src/app/models/stage.model";
+import Stage from 'src/app/models/stage.model';
 
 export default interface Work {
   id: number;

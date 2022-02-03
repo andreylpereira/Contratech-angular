@@ -3,5 +3,5 @@ export default interface Job {
   nomeServico: string;
   preco: number;
   quantidade: number;
-  percentagem: number;
+  porcentagem: number;
 }

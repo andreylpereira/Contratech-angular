@@ -17,13 +17,13 @@ export class LoginService {
 
   login(user: Login) {
     return this.http.post<any>(this.url, user).subscribe((data) => {
-      sessionStorage.setItem('currentUser', JSON.stringify(data));
+      localStorage.setItem('currentUser', JSON.stringify(data));
       this.router.navigate(['obras']);
     });
   }
 
   logout() {
-    sessionStorage.removeItem('currentUser');
+    localStorage.removeItem('currentUser');
   }
 
 }

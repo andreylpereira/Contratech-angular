@@ -12,7 +12,7 @@ export class UserService {
   constructor() {}
 
   getUser() {
-    const session: any = sessionStorage.getItem('currentUser');
+    const session: any = localStorage.getItem('currentUser');
     const data = JSON.parse(session);
     this.user.id = data.id;
     this.user.token = data.token;

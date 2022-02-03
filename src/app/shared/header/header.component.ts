@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn = this.authGuardService.canActivate();
-    const data: any = sessionStorage.getItem('currentUser');
+    const data: any = localStorage.getItem('currentUser');
     this.user = JSON.parse(data);
   }
 

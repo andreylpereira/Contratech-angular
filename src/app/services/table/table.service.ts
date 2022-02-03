@@ -26,7 +26,7 @@ export class TableService {
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + this.userToken,
+          Authorization: `Bearer ${this.userToken}`,
         },
       }
     );
@@ -36,7 +36,7 @@ export class TableService {
     return this.http.put(
       `/api/api/usuarios/${this.userId}/obras/${idObra}/etapas/${idEtapa}`,
       { nomeEtapa: nomeEtapa },
-      { headers: { Authorization: 'Bearer ' + this.userToken } }
+      { headers: { Authorization: `Bearer ${this.userToken}` } }
     );
   }
 
@@ -44,14 +44,14 @@ export class TableService {
     return this.http.post(
       `/api/api/usuarios/${this.userId}/obras/${idObra}/etapas`,
       { nomeEtapa: nomeEtapa },
-      { headers: { Authorization: 'Bearer ' + this.userToken } }
+      { headers: { Authorization: `Bearer ${this.userToken}` } }
     );
   }
 
   deleteStage(idObra: number, idEtapa: number) {
     return this.http.delete(
       `/api/api/usuarios/${this.userId}/obras/${idObra}/etapas/${idEtapa}`,
-      { headers: { Authorization: 'Bearer ' + this.userToken } }
+      { headers: { Authorization: `Bearer ${this.userToken}` } }
     );
   }
 }

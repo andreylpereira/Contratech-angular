@@ -17,18 +17,20 @@
       <div *ngFor="let stage of listStages">
         <mat-expansion-panel style="margin-bottom: 15px">
           <mat-expansion-panel-header>
-            <mat-panel-title class="title-stage">
-              {{ stage.nomeEtapa }}
-              <img
+            <mat-panel-title >
+              <div class="title-stage">{{ stage.nomeEtapa }}</div>
+              <div class="options">
+                <img
                 class="icon-edit"
                 src="../../../assets/icons/edit-list.svg"
                 (click)="modalRename(stage.id)"
               />
               <img
                 src="../../../assets/icons/delete-job.svg"
-                class="delete-icon"
+                class="icon-delete"
                 (click)="modalDelete(stage.id)"
               />
+              </div>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <app-job [etapaId]="stage.id"></app-job>
