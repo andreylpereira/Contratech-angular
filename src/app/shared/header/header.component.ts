@@ -9,8 +9,10 @@ import { LoginService } from 'src/app/services/login/login.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+
   public isLoggedIn: boolean = false;
   public user: any = {};
+
   constructor(
     private authGuardService: AuthGuardService,
     private loginService: LoginService,

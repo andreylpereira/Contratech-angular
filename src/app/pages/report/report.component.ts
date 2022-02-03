@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
+/* Models */
 import Stage from 'src/app/models/stage.model';
 import Work from 'src/app/models/work.model';
+
+/* Service */
 import { ReportService } from 'src/app/services/report/report.service';
 
 @Component({
@@ -21,14 +25,10 @@ export class ReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.obraId = this.route.snapshot.paramMap.get('id');
+
     this.reportService.workReport(this.obraId).subscribe((result) => {
       this.report = result;
       this.stageList.push(...result.etapas);
     });
-  }
-
-  click() {
-    console.log(this.report);
-    console.log(this.stageList);
   }
 }

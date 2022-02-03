@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/services/register/register.service';
 
 /* Model */
-import Register from 'src/app/pages/register/register.model';
+import Register from '../../models/register.model';
 
 @Component({
   selector: 'app-register',

@@ -188,31 +188,3 @@ div.greyTable {
 .mat-progress-spinner {
   margin: 0 auto;
 }
-
-.primary {
-  margin-left: 5px;
-  font: bold 13px Roboto;
-  height: 35px;
-  min-width: 110px;
-  max-width: auto;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05));
-  border-radius: 15px;
-  color: var(--primary);
-  background: var(--secondary);
-  border: 1px solid var(--primary);
-}
-
-.primary:hover {
-  color: var(--primary-hover);
-  border-color: var(--primary-hover);
-}
-
-.primary:active {
-  color: var(--primary-active);
-  border-color: var(--primary-active);
-}
-
-.disabled {
-  background-color: #adadadab;
-  pointer-events: none;
-}

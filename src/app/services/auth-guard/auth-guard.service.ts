@@ -6,13 +6,17 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root',
 })
 export class AuthGuardService implements CanActivate {
-  constructor(private jwtHelper: JwtHelperService, private router: Router) {}
+  constructor(
+    private jwtHelper: JwtHelperService,
+    private router: Router
+  ) {}
 
   isAuthenticated(): boolean {
     const session: any = localStorage.getItem('currentUser');
     const data = JSON.parse(session);
 
     if (data) {
+
       const token = data.token;
       if (typeof token == 'string') {
         return !this.jwtHelper.isTokenExpired(token);
@@ -23,8 +27,15 @@ export class AuthGuardService implements CanActivate {
   }
 
   canActivate(): boolean {
+
     if (!this.isAuthenticated()) {
-      if (this.router.url !== '/cadastrar' && this.router.url !== '/home' && this.router.url !== '') {
+
+      if (
+        this.router.url !== '/cadastrar' &&
+        this.router.url !== '/home' &&
+        this.router.url !== ''
+      ) {
+
         this.router.navigate(['login']);
         return false;
       }

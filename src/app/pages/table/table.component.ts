@@ -21,21 +21,25 @@ import { ModalDeleteStageComponent } from 'src/app/pages/table/modal-delete-stag
 export class TableComponent implements OnInit {
   id: any;
   listStages: Stage[] = [];
+
   constructor(
     private tableService: TableService,
     public route: ActivatedRoute,
     public dialog: MatDialog,
   ) {
+
     this.id = this.route.snapshot.paramMap.get('id');
   }
 
   ngOnInit(): void {
+
     this.tableService
       .getListStage(this.id)
       .subscribe((data) => (this.listStages = data));
   }
 
   modalAdd(): void {
+
     const dialogRef = this.dialog.open(ModalAddStageComponent, {
       width: '400px',
       height: '250px',
@@ -43,13 +47,18 @@ export class TableComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+
       result = this.tableService
       .getListStage(this.id)
-        .subscribe((newList) => (this.listStages = newList));
+        .subscribe((newList) => {
+          this.listStages = newList;
+
+        });
     });
   }
 
   modalRename(idEtapa: number): void {
+
     const dialogRef = this.dialog.open(ModalRenameStageComponent, {
       width: '400px',
       height: '250px',
@@ -57,13 +66,18 @@ export class TableComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+
       result = this.tableService
       .getListStage(this.id)
-        .subscribe((newList) => (this.listStages = newList));
+        .subscribe((newList) => {
+
+          this.listStages = newList;
+        });
     });
   }
 
   modalDelete(idEtapa: number): void {
+
     const dialogRef = this.dialog.open(ModalDeleteStageComponent, {
       width: '400px',
       height: '175px',
@@ -71,9 +85,13 @@ export class TableComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+
       result = this.tableService
       .getListStage(this.id)
-        .subscribe((newList) => (this.listStages = newList));
+        .subscribe((newList) => {
+
+          this.listStages = newList;
+        });
     });
   }
 }

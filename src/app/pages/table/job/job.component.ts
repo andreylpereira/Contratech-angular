@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
 /* Services */
 import { JobService } from 'src/app/services/job/job.service';
 import { ReportService } from 'src/app/services/report/report.service';
@@ -14,20 +15,25 @@ import formValidations from '../job/form-validations';
   styleUrls: ['./job.component.css'],
 })
 export class JobComponent implements OnInit {
+
   @Input()
   public etapaId: number | undefined;
+
   private obraId: any;
+
   public jobsForm: any;
   public listJobs: any;
+
   loader: boolean = false;
 
   constructor(
     private jobService: JobService,
     private reportService: ReportService,
     private fb: FormBuilder,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
   ) {
     this.obraId = this.route.snapshot.paramMap.get('id');
+
     this.jobsForm = this.fb.group({
       jobs: this.fb.array([]),
     });
@@ -35,10 +41,11 @@ export class JobComponent implements OnInit {
 
   ngOnInit() {
     this.loader = true;
+
     this.jobService.getJobs(this.obraId, this.etapaId).subscribe((data) => {
       this.listJobs = data;
-
       this.addListJobs(data.length);
+
     });
     this.loader = false;
   }
@@ -76,48 +83,52 @@ export class JobComponent implements OnInit {
     }
   }
 
-
-  deleteJob(id: number) {
+  createJob() {
     this.loader = true;
-    return this.jobService
-      .delJob(this.obraId, this.etapaId, id)
-      .subscribe(() => {
+
+    return this.jobService.addJob(this.obraId, this.etapaId).subscribe(
+      () => {
+
         this.jobsForm.controls.jobs.clear();
         this.ngOnInit();
       });
   }
 
-
-  createJob() {
+  deleteJob(id: number) {
     this.loader = true;
-    return this.jobService.addJob(this.obraId, this.etapaId).subscribe(() => {
-      this.jobsForm.controls.jobs.clear();
-      this.ngOnInit();
-    });
-  }
 
+    return this.jobService.delJob(this.obraId, this.etapaId, id).subscribe(
+      () => {
+
+        this.jobsForm.controls.jobs.clear();
+        this.ngOnInit();
+      });
+  }
 
   deleteAllJob() {
     this.loader = true;
-    return this.jobService
-      .delAllJob(this.obraId, this.etapaId)
-      .subscribe(() => {
+
+    return this.jobService.delAllJob(this.obraId, this.etapaId).subscribe(
+      () => {
+
         this.jobsForm.controls.jobs.clear();
         this.loader = false;
         this.ngOnInit();
       });
   }
 
-
   updateAllJobs() {
     const data = this.jobsForm.controls.jobs['value'];
+
     this.loader = true;
-    return this.jobService
-      .putAllJob(this.obraId, this.etapaId, data)
-      .subscribe(() => {
+
+    return this.jobService.putAllJob(this.obraId, this.etapaId, data).subscribe(
+      () => {
+
         this.reportService.workReport(this.obraId).subscribe();
         this.jobsForm.controls.jobs.clear();
         this.ngOnInit();
+
       });
   }
 }
