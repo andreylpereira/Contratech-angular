@@ -9,8 +9,10 @@ export class BreadcrumbComponent implements OnInit {
 
   @Input()
   item: string = '';
+
   @Input()
   link: string = '';
+
   @Input()
   router: string = '';
 

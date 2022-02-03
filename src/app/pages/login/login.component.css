@@ -2,6 +2,9 @@ body {
   background-color: var(--bg-primary);
   background-size: cover;
 }
+.container {
+  background-color: var(--bg-primary);
+}
 
 mat-card {
   margin: 0 auto;

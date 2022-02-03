@@ -18,14 +18,14 @@ import Work from '../../../app/models/work.model';
   styleUrls: ['./list-work.component.css'],
 })
 export class ListWorkComponent implements OnInit {
-  listWorks: Work[] = [];
+  public listWorks: Work[] = [];
   displayedColumns: string[] = ['nomeObra', 'id'];
   disabled: boolean = false;
 
   constructor(
     private listWorkService: ListWorkService,
     public dialog: MatDialog,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -41,11 +41,15 @@ export class ListWorkComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      result = this.listWorkService
-        .getListWork()
-        .subscribe((newList) => (this.listWorks = newList));
+
+      result = this.listWorkService.getListWork().subscribe(
+        (newList) => {
+          this.listWorks = newList;
+        }
+      );
     });
   }
+
 
   modalRename(id: number): void {
     const dialogRef = this.dialog.open(ModalRenameWorkComponent, {
@@ -55,23 +59,33 @@ export class ListWorkComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      result = this.listWorkService
-        .getListWork()
-        .subscribe((newList) => (this.listWorks = newList));
+
+      result = this.listWorkService.getListWork().subscribe(
+        (newList) => {
+          this.listWorks = newList;
+
+        }
+      );
     });
   }
 
+
   removeWork(idObra: number): void {
     this.listWorkService.deleteWork(idObra).subscribe((result) => {
-      result = this.listWorkService
-        .getListWork()
-        .subscribe((newList) => (this.listWorks = newList));
+
+      result = this.listWorkService.getListWork().subscribe(
+        (newList) => {
+          this.listWorks = newList;
+        }
+      );
     });
   }
+
 
   goToEtapas(id: number) {
     this.router.navigate([`/obras/${id}/etapas`]);
   }
+
 
   goToRelatorio(id: number) {
     const url = this.router.serializeUrl(

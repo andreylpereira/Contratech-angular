@@ -10,6 +10,7 @@ import { PagesModule } from 'src/app/pages/pages.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { registerLocaleData } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ registerLocaleData(localePt, 'pt');
     ReactiveFormsModule,
     HttpClientModule,
     PagesModule,
+    ToastrModule.forRoot()
   ],
   providers:  [
     {

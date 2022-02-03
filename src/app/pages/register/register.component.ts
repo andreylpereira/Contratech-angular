@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/services/register/register.service';
 
 /* Model */
-import Register from 'src/app/pages/register/register.model';
+import Register from '../../models/register.model';
 
 @Component({
   selector: 'app-register',
@@ -25,12 +25,21 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   public registerForm: FormGroup = this.formBuilder.group({
-    login: ['', [Validators.required,Validators.maxLength(10), Validators.maxLength(20)]],
+    login: [
+      '',
+      [Validators.required, Validators.minLength(10), Validators.maxLength(20)],
+    ],
     firstName: ['', [Validators.required, Validators.maxLength(30)]],
     lastName: ['', [Validators.required, Validators.maxLength(30)]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.maxLength(6), Validators.maxLength(10)]],
-    confirmPassword: ['', [Validators.required,  Validators.maxLength(6), Validators.maxLength(10)]]
+    password: [
+      '',
+      [Validators.required, Validators.minLength(6), Validators.maxLength(10)],
+    ],
+    confirmPassword: [
+      '',
+      [Validators.required, Validators.minLength(6), Validators.maxLength(10)],
+    ],
   });
 
   ngOnInit(): void {}

@@ -57,9 +57,11 @@ table.greyTable thead th:first-child {
 table.greyTable tfoot td {
   font-size: 14px;
 }
+
 table.greyTable tfoot .links {
   text-align: right;
 }
+
 table.greyTable tfoot .links a {
   display: inline-block;
   color: #ffffff;

@@ -1,9 +1,11 @@
 <p
   class="msg-table-undefined"
-  *ngIf="jobsForm.controls.jobs.controls.length == 0"
+  *ngIf="(loader == false) && jobsForm.controls.jobs.controls.length == 0"
 >
-  Não há nenhum serviço, adicionei um clicando em "Adicionar um novo serviço".
+  Não há nenhum serviço cadastrado, adicione um novo serviço clicando em
+  "Adicionar um novo serviço".
 </p>
+<mat-spinner [diameter]="45" *ngIf="loader == true"></mat-spinner>
 <div *ngIf="jobsForm.controls.jobs.controls.length != 0">
   <form [formGroup]="jobsForm">
     <div class="divTable greyTable">
@@ -21,33 +23,56 @@
           <div class="divTableRow">
             <div class="divTableCell" style="padding-top: 10px">
               <p><input type="text" formControlName="nomeServico" /></p>
+              <span
+                *ngIf="
+                  jobsGroup.get('nomeServico')?.errors &&
+                  (jobsGroup.get('nomeServico')?.touched ||
+                    jobsGroup.get('nomeServico')?.dirty)
+                "
+                >*O nome do serviço deve ter entre 5 e 35 caracteres!</span
+              >
             </div>
             <div class="divTableCell">
               <p>
-                <input
-                  type="number"
-                  formControlName="preco"
-                />
+                <input type="number" formControlName="preco" />
               </p>
+              <span
+                *ngIf="
+                  jobsGroup.get('preco')?.errors &&
+                  (jobsGroup.get('preco')?.touched ||
+                    jobsGroup.get('preco')?.dirty ||
+                    jobsGroup.get('preco').controls.value >= 0)
+                "
+                >*O preço têm que ser um valor e positivo!</span
+              >
             </div>
             <div class="divTableCell">
               <p>
-                <input
-                  type="number"
-                  formControlName="quantidade"
-                />
+                <input type="number" formControlName="quantidade" />
               </p>
+              <span
+                *ngIf="
+                  jobsGroup.get('quantidade')?.errors &&
+                  (jobsGroup.get('quantidade')?.touched ||
+                    jobsGroup.get('quantidade')?.dirty)
+                "
+                >*A quantidade preenchida deve ser entre 0 e 99!</span
+              >
             </div>
             <div class="divTableCell">
               <p>
-                <input
-                  type="number"
-                  formControlName="porcentagem"
-                />
+                <input type="number" formControlName="porcentagem" />
               </p>
+              <span
+                *ngIf="
+                  jobsGroup.get('porcentagem')?.errors &&
+                  (jobsGroup.get('porcentagem')?.touched ||
+                    jobsGroup.get('porcentagem')?.dirty)
+                "
+                >*A porcentagem deve ser entre 0 e 100</span
+              >
             </div>
             <div class="divTableCell">
-              <!-- <object class="delete-icon" data="../../../../assets/icons/delete-job.svg" type=""></object> -->
               <div class="icon">
                 <input type="hidden" formControlName="id" />
                 <p (click)="deleteJob(jobsGroup.get('id').value)">X</p>
@@ -61,11 +86,16 @@
 </div>
 <div class="addJob" (click)="createJob()">Adicionar um novo serviço</div>
 <br />
-<app-button color="primary" title="SALVAR" (click)="updateAllJobs()"></app-button>
-<app-button
-  color="danger-outline"
-  title="EXCLUIR SERVIÇOS"
-  style="padding-left: 10px"
-  (click)="deleteAllJob()"
-></app-button>
-
+<div *ngIf="jobsForm.controls.jobs.controls.length != 0">
+  <app-button
+    color="primary"
+    title="SALVAR"
+    (click)="updateAllJobs()"
+  ></app-button>
+  <app-button
+    color="danger-outline"
+    title="EXCLUIR SERVIÇOS"
+    style="padding-left: 10px"
+    (click)="deleteAllJob()"
+  ></app-button>
+</div>

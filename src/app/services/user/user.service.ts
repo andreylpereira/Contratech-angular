@@ -12,6 +12,7 @@ export class UserService {
   constructor() {}
 
   getUser() {
+
     const session: any = localStorage.getItem('currentUser');
     const data = JSON.parse(session);
     this.user.id = data.id;

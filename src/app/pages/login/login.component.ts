@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /* Model */
-import Login from 'src/app/pages/login/login.model';
+import Login from './../../models/login.model';
 /* Service */
 import { LoginService } from 'src/app/services/login/login.service';
 
@@ -35,8 +35,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
+
   login() {
     if (this.loginForm.valid) {
+
       this.user.login = this.loginForm.get('login')?.value;
       this.user.senha = this.loginForm.get('password')?.value;
 

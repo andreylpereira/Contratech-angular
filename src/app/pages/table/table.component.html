@@ -14,22 +14,36 @@
           (click)="modalAdd()"
         ></app-button>
       </div>
+      <mat-card *ngIf="listStages.length == 0">
+        <mat-card-header>
+          <mat-card-title class="title">Atenção!</mat-card-title>
+        </mat-card-header>
+        <mat-card-content
+          ><p>
+            Você não possui nenhuma etapa criada desta obra, favor clicar no
+            botão <b>NOVA ETAPA</b> para efetuar criação.
+          </p></mat-card-content
+        >
+      </mat-card>
       <div *ngFor="let stage of listStages">
-        <mat-expansion-panel style="margin-bottom: 15px">
+        <mat-expansion-panel
+          style="margin-bottom: 15px"
+          *ngIf="listStages.length != 0"
+        >
           <mat-expansion-panel-header>
-            <mat-panel-title >
+            <mat-panel-title>
               <div class="title-stage">{{ stage.nomeEtapa }}</div>
               <div class="options">
                 <img
-                class="icon-edit"
-                src="../../../assets/icons/edit-list.svg"
-                (click)="modalRename(stage.id)"
-              />
-              <img
-                src="../../../assets/icons/delete-job.svg"
-                class="icon-delete"
-                (click)="modalDelete(stage.id)"
-              />
+                  class="icon-edit"
+                  src="../../../assets/icons/edit-list.svg"
+                  (click)="modalRename(stage.id)"
+                />
+                <img
+                  src="../../../assets/icons/delete-job.svg"
+                  class="icon-delete"
+                  (click)="modalDelete(stage.id)"
+                />
               </div>
             </mat-panel-title>
           </mat-expansion-panel-header>

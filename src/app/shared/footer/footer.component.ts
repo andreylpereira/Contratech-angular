@@ -9,6 +9,7 @@ export class FooterComponent implements OnInit {
 
   email: string = 'contratech@gmail.com';
   appName: string = 'Contratech 2022';
+
   constructor() { }
 
   ngOnInit(): void {

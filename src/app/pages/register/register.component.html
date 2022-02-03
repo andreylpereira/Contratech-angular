@@ -20,8 +20,16 @@
               formControlName="login"
               placeholder="Digite seu login"
             />
-            <mat-error *ngIf="registerForm.get('login')?.errors">
-              Login inválido!
+            <mat-error
+              *ngIf="
+                registerForm.get('login')?.hasError('minlength') ||
+                registerForm.get('login')?.hasError('maxlength')
+              "
+            >
+              *O login deve conter entre 10 a 20 caracteres!
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('login')?.hasError('required')">
+              *Campo login está em branco!
             </mat-error>
           </mat-form-field>
           <br />
@@ -33,8 +41,15 @@
               formControlName="firstName"
               placeholder="Digite seu login"
             />
-            <mat-error *ngIf="registerForm.get('firstName')?.errors">
-              Nome inválido!
+            <mat-error
+              *ngIf="registerForm.get('firstName')?.hasError('maxlength')"
+            >
+              *O nome deve conter no máximo 30 caracteres!
+            </mat-error>
+            <mat-error
+              *ngIf="registerForm.get('firstName')?.hasError('required')"
+            >
+              *Campo nome está em branco!
             </mat-error>
           </mat-form-field>
           <br />
@@ -46,8 +61,15 @@
               formControlName="lastName"
               placeholder="Digite seu login"
             />
-            <mat-error *ngIf="registerForm.get('lastName')?.errors">
-              Sobrenome inválido!
+            <mat-error
+              *ngIf="registerForm.get('lastName')?.hasError('maxlength')"
+            >
+              *O sobrenome deve conter no máximo 30 caracteres!
+            </mat-error>
+            <mat-error
+              *ngIf="registerForm.get('lastName')?.hasError('required')"
+            >
+              *Campo sobrenome está em branco!
             </mat-error>
           </mat-form-field>
           <br />
@@ -59,8 +81,8 @@
               formControlName="email"
               placeholder="Digite seu login"
             />
-            <mat-error *ngIf="registerForm.get('email')?.errors">
-              E-mail inválido!
+            <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
+              O campo e-mail está inválido!
             </mat-error>
           </mat-form-field>
           <br />
@@ -72,26 +94,63 @@
               formControlName="password"
               placeholder="Digite seu login"
             />
-            <mat-error *ngIf="registerForm.get('password')?.errors">
-              Senha inválida!
+            <mat-error
+              *ngIf="
+                registerForm.get('password')?.hasError('minlength') ||
+                registerForm.get('password')?.hasError('maxlength')
+              "
+            >
+              *O senha deve conter entre 6 a 10 caracteres!
+            </mat-error>
+            <mat-error
+              *ngIf="registerForm.get('password')?.hasError('required')"
+            >
+              *Campo senha está em branco!
             </mat-error>
           </mat-form-field>
           <br />
           <mat-form-field>
             <mat-label>Confirmação de Senha</mat-label>
             <input
-            class="w-100"
+              class="w-100"
               type="password"
               matInput
               formControlName="confirmPassword"
               placeholder="Digite seu login"
             />
-            <mat-error *ngIf="registerForm.get('confirmPassword')?.errors">
-              Confirmação da senha inválida!
+            <mat-error
+              *ngIf="
+                registerForm.get('confirmPassword')?.hasError('minlength') ||
+                registerForm.get('confirmPassword')?.hasError('maxlength')
+              "
+            >
+              *O senha deve conter entre 6 a 10 caracteres!
+            </mat-error>
+            <mat-error
+              *ngIf="registerForm.get('confirmPassword')?.hasError('required')"
+            >
+              *Campo senha está em branco!
+            </mat-error>
+            <mat-error
+              *ngIf="
+                registerForm
+                  .get('confirmPassword')
+                  ?.hasError('passwordValidator')
+              "
+            >
+              *Campo senha está em branco!
+            </mat-error>
+            <mat-error
+              *ngIf="
+                registerForm.get('confirmPassword')?.value !==
+                registerForm.get('password')?.value
+              "
+            >
+              *O campo senha e confirmar senha têm valores diferentes!
             </mat-error>
           </mat-form-field>
           <br />
-          <br>
+          <br />
           <app-button
             color="primary"
             title="CADASTRAR"
