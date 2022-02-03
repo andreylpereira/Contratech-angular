@@ -26,6 +26,9 @@ body {
 }
 
 
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: var(--primary) !important;
+}
 /* .mat-body p, .mat-body-1 p, .mat-typography p {
   margin: 0;
 } */

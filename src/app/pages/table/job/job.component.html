@@ -1,9 +1,10 @@
 <p
   class="msg-table-undefined"
-  *ngIf="jobsForm.controls.jobs.controls.length == 0"
+  *ngIf="jobsForm.controls.jobs.controls.length == 0 && loader == false"
 >
-  Não há nenhum serviço, adicionei um clicando em "Adicionar um novo serviço".
+  Não há nenhum serviço cadastrado, adicione um novo serviço clicando em "Adicionar um novo serviço".
 </p>
+<mat-spinner [diameter]="45" *ngIf="loader == true"></mat-spinner>
 <div *ngIf="jobsForm.controls.jobs.controls.length != 0">
   <form [formGroup]="jobsForm">
     <div class="divTable greyTable">
@@ -24,26 +25,17 @@
             </div>
             <div class="divTableCell">
               <p>
-                <input
-                  type="number"
-                  formControlName="preco"
-                />
+                <input type="number" formControlName="preco" />
               </p>
             </div>
             <div class="divTableCell">
               <p>
-                <input
-                  type="number"
-                  formControlName="quantidade"
-                />
+                <input type="number" formControlName="quantidade" />
               </p>
             </div>
             <div class="divTableCell">
               <p>
-                <input
-                  type="number"
-                  formControlName="porcentagem"
-                />
+                <input type="number" formControlName="porcentagem" />
               </p>
             </div>
             <div class="divTableCell">
@@ -61,11 +53,29 @@
 </div>
 <div class="addJob" (click)="createJob()">Adicionar um novo serviço</div>
 <br />
-<app-button color="primary" title="SALVAR" (click)="updateAllJobs()"></app-button>
+<div *ngIf="jobsForm.controls.jobs.controls.length != 0">
+<app-button
+  color="primary"
+  title="SALVAR"
+  (click)="updateAllJobs()"
+></app-button>
 <app-button
   color="danger-outline"
   title="EXCLUIR SERVIÇOS"
   style="padding-left: 10px"
   (click)="deleteAllJob()"
 ></app-button>
-
+</div>
+<!-- <div  *ngIf="jobsForm.controls.jobs.controls.length == 0">
+<app-button
+  color="primary"
+  title="SALVAR"
+  class="disabled"
+></app-button>
+<app-button
+  color="danger-outline"
+  title="EXCLUIR SERVIÇOS"
+  style="padding-left: 10px"
+  class="disabled"
+></app-button>
+</div>-->

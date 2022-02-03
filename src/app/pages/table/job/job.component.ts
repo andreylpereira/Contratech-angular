@@ -12,12 +12,12 @@ import { ReportService } from 'src/app/services/report/report.service';
   styleUrls: ['./job.component.css'],
 })
 export class JobComponent implements OnInit {
-
   @Input()
   etapaId: number | undefined;
   obraId: any;
   public jobsForm: any;
   public listJobs: any;
+  loader: boolean = false;
 
   constructor(
     private jobService: JobService,
@@ -32,11 +32,13 @@ export class JobComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loader = true;
     this.jobService.getJobs(this.obraId, this.etapaId).subscribe((data) => {
       this.listJobs = data;
 
       this.addListJobs(data.length);
     });
+    this.loader = false;
   }
 
   /*
@@ -57,6 +59,7 @@ export class JobComponent implements OnInit {
   }
 
   deleteJob(id: number) {
+    this.loader = true;
     return this.jobService
       .delJob(this.obraId, this.etapaId, id)
       .subscribe(() => {
@@ -66,6 +69,7 @@ export class JobComponent implements OnInit {
   }
 
   createJob() {
+    this.loader = true;
     return this.jobService.addJob(this.obraId, this.etapaId).subscribe(() => {
       this.jobsForm.controls.jobs.clear();
       this.ngOnInit();
@@ -73,22 +77,22 @@ export class JobComponent implements OnInit {
   }
 
   deleteAllJob() {
+    this.loader = true;
     return this.jobService
       .delAllJob(this.obraId, this.etapaId)
       .subscribe(() => {
         this.jobsForm.controls.jobs.clear();
+        this.loader = false;
         this.ngOnInit();
       });
   }
 
   updateAllJobs() {
     const data = this.jobsForm.controls.jobs['value'];
-    console.log(data);
-
+    this.loader = true;
     return this.jobService
       .putAllJob(this.obraId, this.etapaId, data)
       .subscribe(() => {
-
         this.reportService.workReport(this.obraId).subscribe();
         this.jobsForm.controls.jobs.clear();
         this.ngOnInit();

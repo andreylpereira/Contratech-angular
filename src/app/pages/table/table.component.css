@@ -3,6 +3,11 @@ body {
   background-size: cover;
 }
 
+.title {
+  font-weight: bold;
+  font-size: 26px;
+}
+
 .title-stage {
   width: 100%;
   font-weight: bold;
@@ -29,4 +34,8 @@ background-color:rgb(230, 230, 230);
 
 ::ng-deep .container {
   background-color: var(--bg-primary);
+}
+
+p > b {
+  font-weight: bold;
 }
