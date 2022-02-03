@@ -1,7 +1,6 @@
 import { FormControl } from '@angular/forms';
 
 export default class formValidations {
-
   static precoValidator(control: FormControl) {
     const preco = control.value;
 

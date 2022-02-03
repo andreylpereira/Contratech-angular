@@ -21,9 +21,12 @@
               formControlName="login"
               placeholder="Digite seu login"
             />
-            <mat-error *ngIf="loginForm.get('login')?.errors">
-              Login inválido!
+            <mat-error *ngIf="loginForm.get('login')?.hasError('minlength') || loginForm.get('login')?.hasError('maxlength')">
+              *O campo Login deve conter entre 6 e 20 caracteres!
             </mat-error>
+            <mat-error *ngIf="loginForm.get('login')?.hasError('required')">
+              *Campo login está em branco!
+             </mat-error>
           </mat-form-field>
           <br />
           <mat-form-field class="form">
@@ -34,8 +37,11 @@
               formControlName="password"
               placeholder="Digite sua senha"
             />
-            <mat-error *ngIf="loginForm.get('password')?.errors">
-             Senha inválida!
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength') || loginForm.get('login')?.hasError('maxlength') ">
+              *A senha deve conter entre 6 e 10 caracteres!
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+             *Campo senha está em branco!
             </mat-error>
           </mat-form-field>
         </form>
