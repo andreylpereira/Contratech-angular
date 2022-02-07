@@ -13,7 +13,7 @@ import { UserService } from '../user/user.service';
   providedIn: 'root',
 })
 export class ListWorkService {
-  readonly url = '${this.url}';
+  readonly url = '/api/api/usuarios';
   private userId: number = 0;
   private userToken: string = '';
 

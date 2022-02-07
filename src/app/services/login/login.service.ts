@@ -41,7 +41,7 @@ export class LoginService {
   logout() {
 
     localStorage.removeItem('currentUser');
-    this.toastr.error(
+    this.toastr.success(
       'Logout efetuado com sucesso!',
       'Atenção!'
     );

@@ -14,7 +14,7 @@ import { UserService } from 'src/app/services/user/user.service';
   providedIn: 'root',
 })
 export class JobService {
-  readonly url = '${this.url}';
+  readonly url = '/api/api/usuarios';
   private userId: number = 0;
   private userToken: string = '';
 

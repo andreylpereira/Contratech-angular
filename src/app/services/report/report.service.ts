@@ -11,7 +11,7 @@ import Work from 'src/app/models/work.model';
   providedIn: 'root',
 })
 export class ReportService {
-  readonly url = '${this.url}';
+  readonly url = '/api/api/usuarios';
   private userId: number = 0;
   private userToken: string = '';
 
