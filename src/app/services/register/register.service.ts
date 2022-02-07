@@ -20,14 +20,13 @@ export class RegisterService {
 
   register(register: Register) {
 
-    return this.http.post(this.url, register).subscribe(
+    return this.http.post<Register>(this.url, register).subscribe(
       () => {
-
         this.router.navigate(['login']);
         this.toastr.success('Conta criado com sucesso!', 'Atenção!');
       },
-      () => {
-
+      (err) => {
+        console.error(err)
         this.toastr.error('Não foi possível criar a conta!');
       }
     );

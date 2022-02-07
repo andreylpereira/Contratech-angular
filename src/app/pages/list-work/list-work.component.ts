@@ -29,9 +29,13 @@ export class ListWorkComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this. getWorks();
+  }
+
+  getWorks() {
     this.listWorkService
-      .getListWork()
-      .subscribe((data) => (this.listWorks = data));
+    .getListWork()
+    .subscribe((data) => (this.listWorks = data));
   }
 
   modalAdd(): void {
