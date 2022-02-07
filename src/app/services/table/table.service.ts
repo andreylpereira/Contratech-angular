@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user/user.service';
   providedIn: 'root',
 })
 export class TableService {
-  readonly url = '/api/api/usuarios';
+  readonly url = '${this.url}';
   private userId: number = 0;
   private userToken: string = '';
 

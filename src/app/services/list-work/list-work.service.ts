@@ -13,7 +13,7 @@ import { UserService } from '../user/user.service';
   providedIn: 'root',
 })
 export class ListWorkService {
-  readonly url = '/api/api/usuarios';
+  readonly url = '${this.url}';
   private userId: number = 0;
   private userToken: string = '';
 
@@ -28,7 +28,7 @@ export class ListWorkService {
 
   getListWork() {
     return this.http.get<Array<Work>>(
-      `/api/api/usuarios/${this.userId}/obras`,
+      `${this.url}/${this.userId}/obras`,
       {
         headers: {
           'Content-Type': 'application/json',
