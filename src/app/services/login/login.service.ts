@@ -28,8 +28,8 @@ export class LoginService {
         this.router.navigate(['obras']);
         this.toastr.success('Login realizado com sucesso!', 'Atenção!');
       },
-      () => {
-
+      (err) => {
+        console.error(err)
         this.toastr.error(
           'Não foi possível entrar no sistema, verifica suas credencias de acesso e sua internet',
           'Atenção!'
@@ -41,7 +41,7 @@ export class LoginService {
   logout() {
 
     localStorage.removeItem('currentUser');
-    this.toastr.error(
+    this.toastr.success(
       'Logout efetuado com sucesso!',
       'Atenção!'
     );
