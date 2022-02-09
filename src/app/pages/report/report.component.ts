@@ -26,7 +26,11 @@ export class ReportComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.obraId = this.route.snapshot.paramMap.get('id');
+    this.getReport();
+}
+
+private getReport() {
+  this.obraId = this.route.snapshot.paramMap.get('id');
 
     this.reportService.workReport(this.obraId).subscribe((result) => {
       this.report = result;

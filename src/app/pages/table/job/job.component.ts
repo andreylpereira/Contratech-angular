@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
 /* Services */
 import { JobService } from 'src/app/services/job/job.service';
 import { ReportService } from 'src/app/services/report/report.service';
@@ -15,7 +14,6 @@ import formValidations from '../job/form-validations';
   styleUrls: ['./job.component.css'],
 })
 export class JobComponent implements OnInit {
-
   @Input()
   public etapaId: number | undefined;
 
@@ -30,7 +28,7 @@ export class JobComponent implements OnInit {
     private jobService: JobService,
     private reportService: ReportService,
     private fb: FormBuilder,
-    public route: ActivatedRoute,
+    public route: ActivatedRoute
   ) {
     this.obraId = this.route.snapshot.paramMap.get('id');
 
@@ -41,15 +39,16 @@ export class JobComponent implements OnInit {
 
   ngOnInit() {
     this.loader = true;
-
-    this.jobService.getJobs(this.obraId, this.etapaId).subscribe((data) => {
-      this.listJobs = data;
-      this.addListJobs(data.length);
-
-    });
+    this.getJobs();
     this.loader = false;
   }
 
+  private getJobs() {
+    this.jobService.getJobs(this.obraId, this.etapaId).subscribe((data) => {
+      this.listJobs = data;
+      this.addListJobs(data.length);
+    });
+  }
   /*
    ! Função que transforma todos os dados recebidos do banco de dados em FormGroup para posteriormente serem inseridos no FormArray ("jobsForm")
    ? Obs: Necessário desenvolver as validações necessárias.
@@ -86,20 +85,18 @@ export class JobComponent implements OnInit {
   createJob() {
     this.loader = true;
 
-    return this.jobService.addJob(this.obraId, this.etapaId).subscribe(
-      () => {
-
-        this.jobsForm.controls.jobs.clear();
-        this.ngOnInit();
-      });
+    return this.jobService.addJob(this.obraId, this.etapaId).subscribe(() => {
+      this.jobsForm.controls.jobs.clear();
+      this.ngOnInit();
+    });
   }
 
   deleteJob(id: number) {
     this.loader = true;
 
-    return this.jobService.delJob(this.obraId, this.etapaId, id).subscribe(
-      () => {
-
+    return this.jobService
+      .delJob(this.obraId, this.etapaId, id)
+      .subscribe(() => {
         this.jobsForm.controls.jobs.clear();
         this.ngOnInit();
       });
@@ -108,9 +105,9 @@ export class JobComponent implements OnInit {
   deleteAllJob() {
     this.loader = true;
 
-    return this.jobService.delAllJob(this.obraId, this.etapaId).subscribe(
-      () => {
-
+    return this.jobService
+      .delAllJob(this.obraId, this.etapaId)
+      .subscribe(() => {
         this.jobsForm.controls.jobs.clear();
         this.loader = false;
         this.ngOnInit();
@@ -122,13 +119,12 @@ export class JobComponent implements OnInit {
 
     this.loader = true;
 
-    return this.jobService.putAllJob(this.obraId, this.etapaId, data).subscribe(
-      () => {
-
+    return this.jobService
+      .putAllJob(this.obraId, this.etapaId, data)
+      .subscribe(() => {
         this.reportService.workReport(this.obraId).subscribe();
         this.jobsForm.controls.jobs.clear();
         this.ngOnInit();
-
       });
   }
 }
