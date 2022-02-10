@@ -1,7 +1,19 @@
 body {
-  background: linear-gradient(180deg, var(--bg-primary) 55%, var(--bg-secondary) 45%);
+  background: var(--bg-primary);
 }
 
 .container {
   background-color: transparent;
 }
+
+header {
+  background-color: #fff;
+  height: 50%;
+}
+
+
+
+/*
+body {
+  background: linear-gradient(180deg, var(--bg-primary) 55%, var(--bg-secondary) 45%);
+} */
