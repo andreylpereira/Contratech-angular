@@ -1,10 +1,25 @@
 <body>
   <app-header></app-header>
-  <header>
-    <div class="container">
-      <div class="main">
-
-      </div>
+  <header class="container">
+    <div class="image">
+      <img
+        src="../../../assets/images/report.jpg"
+        width="65%"
+        alt="Imagem mostrando etapas e serviços que há na contratech"
+        class="img"
+      />
+    </div>
+    <div class="text">
+      <h1>
+        Cadastre-se já e elabore relátorios de seus projetos de construção
+        civil!
+      </h1>
+      <br />
+      <app-button
+        title="CADASTRE-SE"
+        color="primary"
+        [routerLink]="['/cadastrar']"
+      ></app-button>
     </div>
   </header>
 
